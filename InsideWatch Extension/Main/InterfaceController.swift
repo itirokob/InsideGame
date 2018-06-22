@@ -30,7 +30,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
         if let message = message["currentLevel"] as? String{
             self.segueName = "level" + (message) + "Controller"
             
-            presentController(withName: self.segueName, context: nil)
+            DispatchQueue.main.async {
+                self.presentController(withName: self.segueName, context: nil)
+            }
         }
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Symbol.ttf">
+            <string>Symbol</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="Nvc-Q8-5jB">
@@ -22,23 +27,12 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1" y="345"/>
+            <point key="canvasLocation" x="104" y="336"/>
         </scene>
         <!--level1Controller-->
-        <scene sceneID="zhi-Lz-frA">
-            <objects>
-                <controller identifier="level1Controller" title="level1Controller" id="A43-1E-Pzz" userLabel="level1Controller">
-                    <items>
-                        <label width="136" height="167" alignment="left" text="I'm level1Controller" textAlignment="center" numberOfLines="0" id="LI3-Tp-4vd"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="181" y="28"/>
-        </scene>
-        <!--Maze Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="MazeInterfaceController" customModule="InsideWatch_Extension">
+                <controller identifier="level1Controller" title="level1Controller" id="AgC-eL-Hgc" customClass="MazeInterfaceController" customModule="InsideWatch_Extension">
                     <items>
                         <spriteKitScene alignment="left" id="eh2-bW-rMT"/>
                     </items>
@@ -47,7 +41,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="490" y="345"/>
+            <point key="canvasLocation" x="383" y="336"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -63,14 +57,66 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="219" y="973"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="InsideWatch" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="563" y="973"/>
+        </scene>
+        <!--level2Controller-->
+        <scene sceneID="cen-D5-2YH">
+            <objects>
+                <controller identifier="level2Controller" title="level2Controller" id="RRa-wR-jJ8" customClass="AccelerometerInterfaceController" customModule="InsideWatch_Extension" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="X:" id="N98-7m-9Lz"/>
+                        <label alignment="left" text="Y:" id="Dob-6q-cz5"/>
+                        <label alignment="left" text="Z:" id="DsN-sO-Nje"/>
+                    </items>
+                    <connections>
+                        <outlet property="accX" destination="N98-7m-9Lz" id="9t6-bA-Ke0"/>
+                        <outlet property="accY" destination="Dob-6q-cz5" id="Z1I-2X-GNE"/>
+                        <outlet property="accZ" destination="DsN-sO-Nje" id="Bp0-oU-eMn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="383" y="635"/>
+        </scene>
+        <!--level3Controller-->
+        <scene sceneID="51i-A0-wb9">
+            <objects>
+                <controller identifier="level3Controller" title="level3Controller" id="jzO-zt-cmM" customClass="MeditationInterfaceController" customModule="InsideWatch_Extension">
+                    <items>
+                        <label height="20" alignment="center" text="Device Name" id="oZd-4h-Qt9"/>
+                        <group width="1" alignment="left" id="n02-GJ-MOd">
+                            <items>
+                                <imageView alignment="left" image="heart" id="eB2-Sg-lBd"/>
+                                <label alignment="center" text="---" minimumScaleFactor="0.20000000000000001" id="3H5-x4-2wf">
+                                    <fontDescription key="font" name="Symbol" family="Symbol" pointSize="28"/>
+                                </label>
+                                <label alignment="right" text="BPM" id="PHe-2e-eE0">
+                                    <color key="textColor" red="0.86132884030000001" green="0.058584794400000001" blue="0.11313973369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Start" id="vV0-oA-vk2">
+                            <connections>
+                                <action selector="startBtnTapped" destination="jzO-zt-cmM" id="LOX-b0-RdD"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="deviceLabel" destination="oZd-4h-Qt9" id="hP4-YK-aOx"/>
+                        <outlet property="heart" destination="eB2-Sg-lBd" id="Eva-Vg-iPl"/>
+                        <outlet property="label" destination="3H5-x4-2wf" id="Q5l-hM-Y9N"/>
+                        <outlet property="startStopButton" destination="vV0-oA-vk2" id="XQ0-nf-BVZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="383" y="40"/>
         </scene>
     </scenes>
 </document>

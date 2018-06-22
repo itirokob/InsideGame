@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bYP-Xx-lVl">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+    </dependencies>
+    <scenes>
+        <!--level2Controller-->
+        <scene sceneID="Zet-JQ-Xtp">
+            <objects>
+                <controller identifier="level2Controller" title="level2Controller" id="bYP-Xx-lVl" customClass="AccelerometerInterfaceController" customModule="InsideWatch_Extension" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="X:" id="lLV-mA-buI"/>
+                        <label alignment="left" text="Y:" id="YEi-99-SMk"/>
+                        <label alignment="left" text="Z:" id="M9f-X0-fCl"/>
+                    </items>
+                    <connections>
+                        <outlet property="accX" destination="lLV-mA-buI" id="Wpk-3V-M1W"/>
+                        <outlet property="accY" destination="YEi-99-SMk" id="n30-DK-t1i"/>
+                        <outlet property="accZ" destination="M9f-X0-fCl" id="801-f1-CYk"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-26" y="26"/>
+        </scene>
+    </scenes>
+</document>
