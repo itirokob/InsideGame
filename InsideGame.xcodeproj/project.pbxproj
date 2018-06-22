@@ -12,7 +12,62 @@
 		CB91E6F220DC30DF0005DEC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F020DC30DF0005DEC5 /* Main.storyboard */; };
 		CB91E6F420DC30E00005DEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F320DC30E00005DEC5 /* Assets.xcassets */; };
 		CB91E6F720DC30E00005DEC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F520DC30E00005DEC5 /* LaunchScreen.storyboard */; };
+		CB91E70420DC31010005DEC5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E70220DC31010005DEC5 /* Interface.storyboard */; };
+		CB91E70620DC31020005DEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E70520DC31020005DEC5 /* Assets.xcassets */; };
+		CB91E70D20DC31020005DEC5 /* InsideWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CB91E70C20DC31020005DEC5 /* InsideWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CB91E71220DC31020005DEC5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E71120DC31020005DEC5 /* InterfaceController.swift */; };
+		CB91E71820DC31020005DEC5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E71720DC31020005DEC5 /* ExtensionDelegate.swift */; };
+		CB91E71A20DC31020005DEC5 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E71920DC31020005DEC5 /* NotificationController.swift */; };
+		CB91E71C20DC31030005DEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E71B20DC31030005DEC5 /* Assets.xcassets */; };
+		CB91E72120DC31030005DEC5 /* InsideWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB91E70020DC31010005DEC5 /* InsideWatch.app */; };
+		CB91E72E20DC34B10005DEC5 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */; };
+		CBBFB08E20DC7C2100C26E1D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
+		CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB08B20DC7C2100C26E1D /* GameScene.swift */; };
+		CBBFB09820DC7C4300C26E1D /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB09020DC7C4100C26E1D /* Contents.json */; };
+		CBBFB0A120DC7C8100C26E1D /* MazeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB0A020DC7C8100C26E1D /* MazeInterfaceController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB91E70E20DC31020005DEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB91E6E120DC30DF0005DEC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB91E70B20DC31020005DEC5;
+			remoteInfo = "InsideWatch Extension";
+		};
+		CB91E71F20DC31030005DEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB91E6E120DC30DF0005DEC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB91E6FF20DC31010005DEC5;
+			remoteInfo = InsideWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB91E72520DC31030005DEC5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CB91E70D20DC31020005DEC5 /* InsideWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB91E72920DC31030005DEC5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CB91E72120DC31030005DEC5 /* InsideWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CB91E6E920DC30DF0005DEC5 /* InsideGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsideGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +77,33 @@
 		CB91E6F320DC30E00005DEC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB91E6F620DC30E00005DEC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB91E6F820DC30E00005DEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB91E70020DC31010005DEC5 /* InsideWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsideWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB91E70320DC31010005DEC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		CB91E70520DC31020005DEC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB91E70720DC31020005DEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB91E70C20DC31020005DEC5 /* InsideWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "InsideWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB91E71120DC31020005DEC5 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		CB91E71720DC31020005DEC5 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		CB91E71920DC31020005DEC5 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		CB91E71B20DC31030005DEC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB91E71D20DC31030005DEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB91E71E20DC31030005DEC5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		CBBFB08B20DC7C2100C26E1D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		CBBFB08C20DC7C2100C26E1D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		CBBFB09020DC7C4100C26E1D /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		CBBFB0A020DC7C8100C26E1D /* MazeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CB91E6E620DC30DF0005DEC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB91E70920DC31020005DEC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				CB91E6EB20DC30DF0005DEC5 /* InsideGame */,
+				CB91E70120DC31010005DEC5 /* InsideWatch */,
+				CB91E71020DC31020005DEC5 /* InsideWatch Extension */,
 				CB91E6EA20DC30DF0005DEC5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				CB91E6E920DC30DF0005DEC5 /* InsideGame.app */,
+				CB91E70020DC31010005DEC5 /* InsideWatch.app */,
+				CB91E70C20DC31020005DEC5 /* InsideWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +136,82 @@
 		CB91E6EB20DC30DF0005DEC5 /* InsideGame */ = {
 			isa = PBXGroup;
 			children = (
-				CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */,
-				CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */,
-				CB91E6F020DC30DF0005DEC5 /* Main.storyboard */,
+				CB91E72C20DC34470005DEC5 /* Model */,
+				CB91E72B20DC34390005DEC5 /* View */,
+				CB91E72A20DC342A0005DEC5 /* Controllers */,
 				CB91E6F320DC30E00005DEC5 /* Assets.xcassets */,
-				CB91E6F520DC30E00005DEC5 /* LaunchScreen.storyboard */,
+				CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */,
 				CB91E6F820DC30E00005DEC5 /* Info.plist */,
 			);
 			path = InsideGame;
+			sourceTree = "<group>";
+		};
+		CB91E70120DC31010005DEC5 /* InsideWatch */ = {
+			isa = PBXGroup;
+			children = (
+				CB91E70220DC31010005DEC5 /* Interface.storyboard */,
+				CB91E70520DC31020005DEC5 /* Assets.xcassets */,
+				CB91E70720DC31020005DEC5 /* Info.plist */,
+			);
+			path = InsideWatch;
+			sourceTree = "<group>";
+		};
+		CB91E71020DC31020005DEC5 /* InsideWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CBBFB08A20DC7BC000C26E1D /* Controllers */,
+				CB91E71720DC31020005DEC5 /* ExtensionDelegate.swift */,
+				CBBFB0A220DC7C8700C26E1D /* Maze */,
+				CB91E71B20DC31030005DEC5 /* Assets.xcassets */,
+				CBBFB09020DC7C4100C26E1D /* Contents.json */,
+				CB91E71D20DC31030005DEC5 /* Info.plist */,
+				CB91E71E20DC31030005DEC5 /* PushNotificationPayload.apns */,
+			);
+			path = "InsideWatch Extension";
+			sourceTree = "<group>";
+		};
+		CB91E72A20DC342A0005DEC5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */,
+				CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CB91E72B20DC34390005DEC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB91E6F020DC30DF0005DEC5 /* Main.storyboard */,
+				CB91E6F520DC30E00005DEC5 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB91E72C20DC34470005DEC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBBFB08A20DC7BC000C26E1D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB91E71920DC31020005DEC5 /* NotificationController.swift */,
+				CB91E71120DC31020005DEC5 /* InterfaceController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CBBFB0A220DC7C8700C26E1D /* Maze */ = {
+			isa = PBXGroup;
+			children = (
+				CBBFB0A020DC7C8100C26E1D /* MazeInterfaceController.swift */,
+				CBBFB08C20DC7C2100C26E1D /* GameScene.sks */,
+				CBBFB08B20DC7C2100C26E1D /* GameScene.swift */,
+			);
+			path = Maze;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +224,51 @@
 				CB91E6E520DC30DF0005DEC5 /* Sources */,
 				CB91E6E620DC30DF0005DEC5 /* Frameworks */,
 				CB91E6E720DC30DF0005DEC5 /* Resources */,
+				CB91E72920DC31030005DEC5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CB91E72020DC31030005DEC5 /* PBXTargetDependency */,
 			);
 			name = InsideGame;
 			productName = InsideGame;
 			productReference = CB91E6E920DC30DF0005DEC5 /* InsideGame.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CB91E6FF20DC31010005DEC5 /* InsideWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB91E72620DC31030005DEC5 /* Build configuration list for PBXNativeTarget "InsideWatch" */;
+			buildPhases = (
+				CB91E6FE20DC31010005DEC5 /* Resources */,
+				CB91E72520DC31030005DEC5 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB91E70F20DC31020005DEC5 /* PBXTargetDependency */,
+			);
+			name = InsideWatch;
+			productName = InsideWatch;
+			productReference = CB91E70020DC31010005DEC5 /* InsideWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CB91E70B20DC31020005DEC5 /* InsideWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB91E72220DC31030005DEC5 /* Build configuration list for PBXNativeTarget "InsideWatch Extension" */;
+			buildPhases = (
+				CB91E70820DC31020005DEC5 /* Sources */,
+				CB91E70920DC31020005DEC5 /* Frameworks */,
+				CB91E70A20DC31020005DEC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "InsideWatch Extension";
+			productName = "InsideWatch Extension";
+			productReference = CB91E70C20DC31020005DEC5 /* InsideWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +281,12 @@
 				ORGANIZATIONNAME = "Bianca Itiroko";
 				TargetAttributes = {
 					CB91E6E820DC30DF0005DEC5 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CB91E6FF20DC31010005DEC5 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CB91E70B20DC31020005DEC5 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -113,6 +305,8 @@
 			projectRoot = "";
 			targets = (
 				CB91E6E820DC30DF0005DEC5 /* InsideGame */,
+				CB91E6FF20DC31010005DEC5 /* InsideWatch */,
+				CB91E70B20DC31020005DEC5 /* InsideWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -122,9 +316,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBBFB08E20DC7C2100C26E1D /* GameScene.sks in Resources */,
 				CB91E6F720DC30E00005DEC5 /* LaunchScreen.storyboard in Resources */,
 				CB91E6F420DC30E00005DEC5 /* Assets.xcassets in Resources */,
 				CB91E6F220DC30DF0005DEC5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB91E6FE20DC31010005DEC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB91E70620DC31020005DEC5 /* Assets.xcassets in Resources */,
+				CB91E70420DC31010005DEC5 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB91E70A20DC31020005DEC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB91E71C20DC31030005DEC5 /* Assets.xcassets in Resources */,
+				CBBFB09820DC7C4300C26E1D /* Contents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,12 +348,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB91E72E20DC34B10005DEC5 /* LevelViewController.swift in Sources */,
 				CB91E6EF20DC30DF0005DEC5 /* ViewController.swift in Sources */,
 				CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CB91E70820DC31020005DEC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB91E71220DC31020005DEC5 /* InterfaceController.swift in Sources */,
+				CBBFB0A120DC7C8100C26E1D /* MazeInterfaceController.swift in Sources */,
+				CB91E71A20DC31020005DEC5 /* NotificationController.swift in Sources */,
+				CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */,
+				CB91E71820DC31020005DEC5 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB91E70F20DC31020005DEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB91E70B20DC31020005DEC5 /* InsideWatch Extension */;
+			targetProxy = CB91E70E20DC31020005DEC5 /* PBXContainerItemProxy */;
+		};
+		CB91E72020DC31030005DEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB91E6FF20DC31010005DEC5 /* InsideWatch */;
+			targetProxy = CB91E71F20DC31030005DEC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CB91E6F020DC30DF0005DEC5 /* Main.storyboard */ = {
@@ -157,6 +396,14 @@
 				CB91E6F620DC30E00005DEC5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CB91E70220DC31010005DEC5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB91E70320DC31010005DEC5 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -312,6 +559,88 @@
 			};
 			name = Release;
 		};
+		CB91E72320DC31030005DEC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		CB91E72420DC31030005DEC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		CB91E72720DC31030005DEC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				IBSC_MODULE = InsideWatch_Extension;
+				INFOPLIST_FILE = InsideWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		CB91E72820DC31030005DEC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				IBSC_MODULE = InsideWatch_Extension;
+				INFOPLIST_FILE = InsideWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -329,6 +658,24 @@
 			buildConfigurations = (
 				CB91E6FC20DC30E00005DEC5 /* Debug */,
 				CB91E6FD20DC30E00005DEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB91E72220DC31030005DEC5 /* Build configuration list for PBXNativeTarget "InsideWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB91E72320DC31030005DEC5 /* Debug */,
+				CB91E72420DC31030005DEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB91E72620DC31030005DEC5 /* Build configuration list for PBXNativeTarget "InsideWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB91E72720DC31030005DEC5 /* Debug */,
+				CB91E72820DC31030005DEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
