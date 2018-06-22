@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InsideWatch Extension/Maze/GameScene.swift"
-            timestampString = "551320964.07964"
+            filePath = "InsideWatch Extension/Heartbeat/AccelerometerInterfaceController.swift"
+            timestampString = "551366583.762996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "sceneDidLoad()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "willActivate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InsideWatch Extension/Heartbeat/AccelerometerInterfaceController.swift"
-            timestampString = "551366583.762996"
+            filePath = "InsideWatch Extension/Meditation/MeditationInterfaceController.swift"
+            timestampString = "551391208.486065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "willActivate()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

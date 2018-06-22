@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		12D3DE8720DD6B2A0055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8620DD6B2A0055E207 /* HealthKit.framework */; };
 		12D3DE8A20DD6B310055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8920DD6B310055E207 /* HealthKit.framework */; };
+		CB2CFD7820DD6FC900C22E52 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
+		CB2CFD7920DD6FCD00C22E52 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
 		CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */; };
 		CB91E6EF20DC30DF0005DEC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */; };
 		CB91E6F220DC30DF0005DEC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F020DC30DF0005DEC5 /* Main.storyboard */; };
@@ -386,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB91E70620DC31020005DEC5 /* Assets.xcassets in Resources */,
+				CB2CFD7920DD6FCD00C22E52 /* GameScene.sks in Resources */,
 				CB91E70420DC31010005DEC5 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2CFD7820DD6FC900C22E52 /* GameScene.sks in Resources */,
 				CB91E71C20DC31030005DEC5 /* Assets.xcassets in Resources */,
 				CBBFB0A720DD2ABA00C26E1D /* Accelerometer.storyboard in Resources */,
 				CBBFB09820DC7C4300C26E1D /* Contents.json in Resources */,
