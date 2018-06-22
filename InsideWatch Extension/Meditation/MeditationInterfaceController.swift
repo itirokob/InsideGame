@@ -38,10 +38,10 @@ class MeditationInterfaceController: WKInterfaceController {
         // Request HealthKit authorization
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             guard authorized else {
-                
+
                 let baseMessage = "HealthKit Authorization Failed"
                 self.displayNotAllowed()
-                
+
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
                 } else {
@@ -53,6 +53,12 @@ class MeditationInterfaceController: WKInterfaceController {
         }
     }
     
+    override func willDisappear() {
+        super.willDisappear()
+        
+        self.finishCurrentWorkout()
+    }
+    
     func displayNotAllowed() {
         label.setText("Healthkit not available.")
     }
@@ -61,18 +67,21 @@ class MeditationInterfaceController: WKInterfaceController {
     @IBAction func startBtnTapped() {
         if (self.workoutActive) {
             //finish the current workout
-            self.workoutActive = false
-            self.startStopButton.setTitle("Start")
-            if let workout = self.session {
-                healthStore.end(workout)
-            }
+            self.finishCurrentWorkout()
         } else {
             //start a new workout
             self.workoutActive = true
             self.startStopButton.setTitle("Stop")
             startWorkout()
         }
-        
+    }
+    
+    func finishCurrentWorkout() {
+        self.workoutActive = false
+        self.startStopButton.setTitle("Start")
+        if let workout = self.session {
+            healthStore.end(workout)
+        }
     }
     
     func updateHeartRate(_ samples: [HKSample]?) {

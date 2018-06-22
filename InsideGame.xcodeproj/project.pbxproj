@@ -526,6 +526,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -579,6 +580,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -591,13 +593,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -610,13 +612,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -629,14 +631,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -652,14 +654,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -675,10 +677,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -694,10 +696,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirokoKim.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
