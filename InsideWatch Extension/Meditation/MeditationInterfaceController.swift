@@ -9,13 +9,16 @@
 import WatchKit
 import Foundation
 import HealthKit
+import WatchConnectivity
 
-class MeditationInterfaceController: WKInterfaceController {
+class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
 
     @IBOutlet private weak var label: WKInterfaceLabel!
     @IBOutlet private weak var deviceLabel : WKInterfaceLabel!
     @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
     let healthStore = HKHealthStore()
     
@@ -30,6 +33,14 @@ class MeditationInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let message = message["shouldDismiss"] as? Bool{
+            if message {
+                self.dismiss()
+            }
+        }
     }
     
     override func willActivate() {

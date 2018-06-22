@@ -45,5 +45,4 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
 }

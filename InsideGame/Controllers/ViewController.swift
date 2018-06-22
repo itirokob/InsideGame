@@ -36,6 +36,10 @@ class ViewController: UIViewController, WCSessionDelegate {
         performSegue(withIdentifier: "levelSegue", sender: sender)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("OIEEEE")
+    }
+    
     //Ao adicionar um novo botão, dar update na tag (ela vai de 0 a n-1)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "levelSegue" {
