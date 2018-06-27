@@ -8,10 +8,13 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
-class CheckBackgroundInterfaceController: WKInterfaceController {
+class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelegate {
     let MY_LEVEL = 3
     let userDefaults = UserDefaults.standard
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -30,7 +33,14 @@ class CheckBackgroundInterfaceController: WKInterfaceController {
             self.wonLevel(level: MY_LEVEL)
         }
     }
-
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let message = message["shouldDismiss"] as? Bool{
+            if message {
+                self.dismiss()
+            }
+        }
+    }
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()

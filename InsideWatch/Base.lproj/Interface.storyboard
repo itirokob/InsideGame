@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Symbol.ttf">
@@ -41,7 +41,14 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="383" y="336"/>
+            <point key="canvasLocation" x="394" y="26"/>
+        </scene>
+        <!--Check background-->
+        <scene sceneID="jI0-5I-4hh">
+            <objects>
+                <controller identifier="level3Controller" title="Check background" id="gBK-YQ-e8Y"/>
+            </objects>
+            <point key="canvasLocation" x="394" y="592"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -67,27 +74,9 @@
             <point key="canvasLocation" x="563" y="973"/>
         </scene>
         <!--level2Controller-->
-        <scene sceneID="cen-D5-2YH">
-            <objects>
-                <controller identifier="level2Controller" id="RRa-wR-jJ8" customClass="AccelerometerInterfaceController" customModule="InsideWatch" customModuleProvider="target">
-                    <items>
-                        <label alignment="left" text="X:" id="N98-7m-9Lz"/>
-                        <label alignment="left" text="Y:" id="Dob-6q-cz5"/>
-                        <label alignment="left" text="Z:" id="DsN-sO-Nje"/>
-                    </items>
-                    <connections>
-                        <outlet property="accX" destination="N98-7m-9Lz" id="9t6-bA-Ke0"/>
-                        <outlet property="accY" destination="Dob-6q-cz5" id="Z1I-2X-GNE"/>
-                        <outlet property="accZ" destination="DsN-sO-Nje" id="Bp0-oU-eMn"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="383" y="635"/>
-        </scene>
-        <!--level3Controller-->
         <scene sceneID="51i-A0-wb9">
             <objects>
-                <controller identifier="level3Controller" id="jzO-zt-cmM" customClass="MeditationInterfaceController" customModule="InsideWatch_Extension">
+                <controller identifier="level2Controller" id="jzO-zt-cmM" customClass="MeditationInterfaceController" customModule="InsideWatch_Extension">
                     <items>
                         <label height="20" alignment="center" text="Device Name" id="oZd-4h-Qt9"/>
                         <group width="1" alignment="left" id="n02-GJ-MOd">
@@ -118,7 +107,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="383" y="40"/>
+            <point key="canvasLocation" x="394" y="311"/>
         </scene>
     </scenes>
 </document>

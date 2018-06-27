@@ -8,13 +8,15 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
-
-class MazeInterfaceController: WKInterfaceController {
+class MazeInterfaceController: WKInterfaceController,WCSessionDelegate {
     let MY_LEVEL = 1
 
     @IBOutlet var skInterface: WKInterfaceSKScene!
-    
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -31,6 +33,14 @@ class MazeInterfaceController: WKInterfaceController {
             
             // Use a value that will maintain a consistent frame rate
             self.skInterface.preferredFramesPerSecond = 30
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let message = message["shouldDismiss"] as? Bool{
+            if message {
+                self.dismiss()
+            }
         }
     }
     

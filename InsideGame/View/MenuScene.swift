@@ -20,9 +20,9 @@ class MenuScene: SKScene, TreatWatchMessages {
     
     var numberOfLevels = 4
     var hints = [
+        "BRING BACK \nMY BALANCE!",
         "I AM FELLING \nLONELY",
         "I AM \nEXHAUSTED",
-        "BRING BACK \nMY BALANCE!",
         "HELP ME! \nI'M DROWNING"
     ]
 
@@ -60,6 +60,8 @@ class MenuScene: SKScene, TreatWatchMessages {
             
             if(WCSession.default.isReachable){
                 let message = ["currentLevel": level]
+//                let shouldDismissMsg = ["shouldDismiss": true]
+//                WCSession.default.sendMessage(shouldDismissMsg, replyHandler: nil)
                 WCSession.default.sendMessage(message, replyHandler: nil)
             }
         }
