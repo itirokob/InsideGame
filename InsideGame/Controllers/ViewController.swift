@@ -29,7 +29,7 @@ class ViewController: UIViewController, WCSessionDelegate {
     
     @IBAction func levelAction(_ sender: UIButton) {
         if(WCSession.default.isReachable){
-            let message = ["currentLevel": String(sender.tag + 1)]
+            let message = ["currentLevel": (sender.tag + 1)]
             WCSession.default.sendMessage(message, replyHandler: nil)
         }
         

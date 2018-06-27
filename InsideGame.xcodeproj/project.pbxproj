@@ -15,6 +15,7 @@
 		A275C39620E2DE450026E79C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275C39520E2DE450026E79C /* MenuViewController.swift */; };
 		CB2CFD7820DD6FC900C22E52 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
 		CB2CFD7920DD6FCD00C22E52 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
+		CB3F158620E3E3D400016088 /* WaterlockInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F158520E3E3D400016088 /* WaterlockInterfaceController.swift */; };
 		CB69E52E20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB69E52D20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift */; };
 		CB69E53020E3BC1E006E4C99 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB69E52F20E3BC1E006E4C99 /* Extensions.swift */; };
 		CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */; };
@@ -92,6 +93,7 @@
 		A275C39020E2D8340026E79C /* Menu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Menu.sks; sourceTree = "<group>"; };
 		A275C39120E2D8350026E79C /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		A275C39520E2DE450026E79C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CB3F158520E3E3D400016088 /* WaterlockInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterlockInterfaceController.swift; sourceTree = "<group>"; };
 		CB69E52D20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBackgroundInterfaceController.swift; sourceTree = "<group>"; };
 		CB69E52F20E3BC1E006E4C99 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CB91E6E920DC30DF0005DEC5 /* InsideGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsideGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,14 @@
 				12D3DE8620DD6B2A0055E207 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB3F158420E3E34400016088 /* Waterlock */ = {
+			isa = PBXGroup;
+			children = (
+				CB3F158520E3E3D400016088 /* WaterlockInterfaceController.swift */,
+			);
+			path = Waterlock;
 			sourceTree = "<group>";
 		};
 		CB69E52C20E3B590006E4C99 /* Check Background */ = {
@@ -220,6 +230,7 @@
 				CBBFB0AA20DD386700C26E1D /* Meditation */,
 				CBBFB0A520DD2A7900C26E1D /* Accelerometer */,
 				CBBFB0A220DC7C8700C26E1D /* Maze */,
+				CB3F158420E3E34400016088 /* Waterlock */,
 			);
 			path = "InsideWatch Extension";
 			sourceTree = "<group>";
@@ -460,6 +471,7 @@
 				CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */,
 				CBBFB0A420DD2A7400C26E1D /* AccelerometerInterfaceController.swift in Sources */,
 				CBBFB0A920DD385B00C26E1D /* MeditationInterfaceController.swift in Sources */,
+				CB3F158620E3E3D400016088 /* WaterlockInterfaceController.swift in Sources */,
 				CB91E71820DC31020005DEC5 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
