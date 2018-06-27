@@ -1,4 +1,4 @@
-//
+
 //  MenuScene.swift
 //  InsideGame
 //
@@ -54,12 +54,12 @@ class MenuScene: SKScene, TreatWatchMessages {
         if selectedNode.name?.range(of: "level") != nil {
             print ("sou clicável")
             let index = selectedNode.name?.index((selectedNode.name?.startIndex)!, offsetBy: 5)
-            let level = selectedNode.name?[index!]
+            let level = Int(String((selectedNode.name?[index!])!))
             print(level!)
             self.hintLabel.text = hints[Int(String(level!))! - 1]
             
             if(WCSession.default.isReachable){
-                let message = ["currentLevel": level!]
+                let message = ["currentLevel": level]
                 WCSession.default.sendMessage(message, replyHandler: nil)
             }
         }
