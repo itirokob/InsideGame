@@ -19,6 +19,8 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
     
     let MY_LEVEL = 2
+    
+    var heartRate = 1.0
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
@@ -104,6 +106,14 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
         DispatchQueue.main.async {
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
+            if self.heartRate == 1.0 {  // set initial heart rate
+                self.heartRate = value
+            } else {
+                if value - self.heartRate <= 10 {
+                    self.label.
+                }
+            }
+            
             self.label.setText(String(UInt16(value)))
             
             // retrieve source from sample
