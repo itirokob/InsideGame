@@ -111,8 +111,8 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
             if self.heartRate == 1.0 {  // set initial heart rate
                 self.heartRate = value
             } else {
-                if value - self.heartRate <= 10 {
-                    self.goalCompleted.setText("UHULL")
+                if self.heartRate - value >= 10 {
+                    self.goalCompleted.setText("i: \(self.heartRate)  o: \(value)")
                 }
             }
             
@@ -220,6 +220,7 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
     
     func workoutDidEnd(_ date : Date) {
         healthStore.stop(self.currenQuery!)
+        heartRate = 1.0
         label.setText("---")
         session = nil
     }
