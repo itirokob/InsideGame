@@ -10,11 +10,24 @@ import UIKit
 import SpriteKit
 import WatchConnectivity
 
-class MenuViewController: UIViewController {
+//Chama a função
 
+protocol TreatWatchMessages {
+    func wonLevel(level:Int)
+}
+
+class MenuViewController: UIViewController, WCSessionDelegate{
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    func sessionDidDeactivate(_ session: WCSession) {}
+    
     @IBOutlet var scrollview: UIScrollView!
     @IBOutlet var menuScene: SKView!
 
+    let userDefaults = UserDefaults.standard
+    
+    var delegate: TreatWatchMessages?
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
@@ -22,6 +35,11 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         // Do any additional setup after loading the view.
         // Register custom font
         if let fontURL = Bundle.main.url(forResource: "SFCompactText-Medium", withExtension: "otf") {
@@ -44,20 +62,18 @@ class MenuViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        let currMaxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
+        
+        if let message = message["maxLevelReached"] as? Int{
+            if message > currMaxLevel {
+                self.userDefaults.set(message, forKey: "maxLevelReached")
+                DispatchQueue.main.async {
+                    self.delegate?.wonLevel(level: message)
+                }
+            }
+        }
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

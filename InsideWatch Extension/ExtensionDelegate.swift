@@ -9,7 +9,9 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-
+    let userDefaults = UserDefaults.standard
+    let BACKGROUND_LEVEL = 3
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
     }
@@ -21,6 +23,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+    }
+    
+    func applicationDidEnterBackground() {
+        let maxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
+        
+        //Se o maxLevel for (BACKGROUND_LEVEL - 1), então o próximo level é o de background
+        if maxLevel == (BACKGROUND_LEVEL - 1) {
+            self.userDefaults.set(true, forKey: "wonBackgroundLevel")
+        }
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {

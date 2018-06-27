@@ -11,7 +11,8 @@ import Foundation
 
 
 class MazeInterfaceController: WKInterfaceController {
-    
+    let MY_LEVEL = 1
+
     @IBOutlet var skInterface: WKInterfaceSKScene!
     
     override func awake(withContext context: Any?) {

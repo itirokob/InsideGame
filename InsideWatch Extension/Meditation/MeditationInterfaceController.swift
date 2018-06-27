@@ -18,6 +18,8 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
     
+    let MY_LEVEL = 2
+
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
     let healthStore = HKHealthStore()
@@ -33,6 +35,7 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {

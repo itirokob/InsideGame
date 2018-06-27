@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import WatchConnectivity
 import SpriteKit
 
-class MenuScene: SKScene {
+//Implementa a função
 
+class MenuScene: SKScene, TreatWatchMessages {
+    func wonLevel(level: Int) {
+        //Mudar a texture do levelButton de indice level
+        //Habilitar o próximo botão
+    }
+    
     var numberOfLevels = 4
     var hints = [
         "I AM FELLING \nLONELY",
@@ -23,6 +30,8 @@ class MenuScene: SKScene {
     public var levelButtons = [SKNode]()
     var map = SKTileMapNode()
     var selectedNode = SKNode()
+    
+    let userDefaults = UserDefaults.standard
 
     override func didMove(to view: SKView) {
         /* Setup your scene here */
@@ -48,6 +57,11 @@ class MenuScene: SKScene {
             let level = selectedNode.name?[index!]
             print(level!)
             self.hintLabel.text = hints[Int(String(level!))! - 1]
+            
+            if(WCSession.default.isReachable){
+                let message = ["currentLevel": "]
+                WCSession.default.sendMessage(message, replyHandler: nil)
+            }
         }
     }
 
