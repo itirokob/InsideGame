@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kni-To-MJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zEw-MX-yj5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,6 +74,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="bkx-m2-ieM">
+            <objects>
+                <viewController id="zEw-MX-yj5" customClass="MenuViewController" customModule="InsideGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2AS-AI-Q3U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngw-g5-UPY">
+                                <rect key="frame" x="-249" y="-162" width="873" height="990"/>
+                                <subviews>
+                                    <skView contentMode="scaleToFill" sceneName="Menu.sks" translatesAutoresizingMaskIntoConstraints="NO" id="zVl-Te-yyT">
+                                        <rect key="frame" x="0.0" y="0.0" width="873" height="990"/>
+                                    </skView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zVl-Te-yyT" secondAttribute="width" id="0Ln-TZ-Utm"/>
+                                    <constraint firstItem="zVl-Te-yyT" firstAttribute="top" secondItem="ngw-g5-UPY" secondAttribute="top" id="2Nj-XT-6xW"/>
+                                    <constraint firstAttribute="trailing" secondItem="zVl-Te-yyT" secondAttribute="trailing" id="AuF-Kg-OVx"/>
+                                    <constraint firstItem="zVl-Te-yyT" firstAttribute="leading" secondItem="ngw-g5-UPY" secondAttribute="leading" id="Xq6-nM-MbD"/>
+                                    <constraint firstAttribute="bottom" secondItem="zVl-Te-yyT" secondAttribute="bottom" id="aRT-Oj-f4z"/>
+                                    <constraint firstAttribute="height" secondItem="zVl-Te-yyT" secondAttribute="height" id="nnL-A6-Ovk"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ngw-g5-UPY" firstAttribute="centerX" secondItem="2AS-AI-Q3U" secondAttribute="centerX" id="07t-qC-1Pg"/>
+                            <constraint firstItem="ngw-g5-UPY" firstAttribute="top" secondItem="2AS-AI-Q3U" secondAttribute="top" constant="-162" id="27a-bo-Jep"/>
+                            <constraint firstItem="ngw-g5-UPY" firstAttribute="centerY" secondItem="2AS-AI-Q3U" secondAttribute="centerY" id="vHf-D2-ISL"/>
+                            <constraint firstItem="ngw-g5-UPY" firstAttribute="leading" secondItem="2AS-AI-Q3U" secondAttribute="leading" constant="-249" id="w8j-5L-2Qo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hor-CB-Viw"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="menuScene" destination="zVl-Te-yyT" id="Ix2-Kc-v4n"/>
+                        <outlet property="scrollview" destination="ngw-g5-UPY" id="LEc-nc-lZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yxe-2N-mCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="935"/>
         </scene>
         <!--Level View Controller-->
         <scene sceneID="Cm5-hB-anc">
