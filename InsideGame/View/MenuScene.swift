@@ -59,7 +59,7 @@ class MenuScene: SKScene, TreatWatchMessages {
             self.hintLabel.text = hints[Int(String(level!))! - 1]
             
             if(WCSession.default.isReachable){
-                let message = ["currentLevel": "]
+                let message = ["currentLevel": level!]
                 WCSession.default.sendMessage(message, replyHandler: nil)
             }
         }
