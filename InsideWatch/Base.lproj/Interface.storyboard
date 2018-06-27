@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Symbol.ttf">
@@ -107,9 +107,11 @@
                                 <action selector="startBtnTapped" destination="jzO-zt-cmM" id="LOX-b0-RdD"/>
                             </connections>
                         </button>
+                        <label alignment="left" text="Label" id="Vxi-hb-kQ9"/>
                     </items>
                     <connections>
                         <outlet property="deviceLabel" destination="oZd-4h-Qt9" id="hP4-YK-aOx"/>
+                        <outlet property="goalCompleted" destination="Vxi-hb-kQ9" id="TrG-Fk-SN0"/>
                         <outlet property="heart" destination="eB2-Sg-lBd" id="Eva-Vg-iPl"/>
                         <outlet property="label" destination="3H5-x4-2wf" id="Q5l-hM-Y9N"/>
                         <outlet property="startStopButton" destination="vV0-oA-vk2" id="XQ0-nf-BVZ"/>

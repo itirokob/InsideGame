@@ -18,6 +18,8 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
     
+    @IBOutlet var goalCompleted: WKInterfaceLabel!
+    
     let MY_LEVEL = 2
     
     var heartRate = 1.0
@@ -110,7 +112,7 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
                 self.heartRate = value
             } else {
                 if value - self.heartRate <= 10 {
-                    self.label.
+                    self.goalCompleted.setText("UHULL")
                 }
             }
             
