@@ -14,13 +14,14 @@ class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelega
     let MY_LEVEL = 3
     let userDefaults = UserDefaults.standard
 
+    @IBOutlet var funfouLabel: WKInterfaceLabel!
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         // Configure interface objects here.
     }
-
+ 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()

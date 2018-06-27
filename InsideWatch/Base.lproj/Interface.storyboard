@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L5Q-5n-x7A">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Symbol.ttf">
@@ -46,7 +46,14 @@
         <!--Check background-->
         <scene sceneID="jI0-5I-4hh">
             <objects>
-                <controller identifier="level3Controller" title="Check background" id="gBK-YQ-e8Y"/>
+                <controller identifier="level3Controller" title="Check background" id="gBK-YQ-e8Y" customClass="CheckBackgroundInterfaceController" customModule="InsideWatch_Extension">
+                    <items>
+                        <label width="136" height="24" alignment="left" text="Funcionou?" id="7Al-sI-1EO"/>
+                    </items>
+                    <connections>
+                        <outlet property="funfouLabel" destination="7Al-sI-1EO" id="3f1-GR-YHl"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="394" y="592"/>
         </scene>
