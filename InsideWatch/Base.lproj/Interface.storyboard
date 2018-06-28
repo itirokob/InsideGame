@@ -85,7 +85,6 @@
             <objects>
                 <controller identifier="level2Controller" id="jzO-zt-cmM" customClass="MeditationInterfaceController" customModule="InsideWatch_Extension">
                     <items>
-                        <label height="20" alignment="center" text="Device Name" id="oZd-4h-Qt9"/>
                         <group width="1" alignment="left" id="n02-GJ-MOd">
                             <items>
                                 <imageView alignment="left" image="heart" id="eB2-Sg-lBd"/>
@@ -114,7 +113,6 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="deviceLabel" destination="oZd-4h-Qt9" id="hP4-YK-aOx"/>
                         <outlet property="goalCompleted" destination="Vxi-hb-kQ9" id="TrG-Fk-SN0"/>
                         <outlet property="heart" destination="eB2-Sg-lBd" id="Eva-Vg-iPl"/>
                         <outlet property="heartRateLabel" destination="3H5-x4-2wf" id="iRe-Vj-HU4"/>

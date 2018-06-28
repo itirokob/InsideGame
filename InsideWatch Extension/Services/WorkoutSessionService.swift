@@ -25,7 +25,6 @@ protocol WorkoutSessionServiceDelegate: class {
 
 }
 
-
 class WorkoutSessionService: NSObject {
     fileprivate let healthService = HealthKitSetupAssistant()
     let session: HKWorkoutSession
@@ -156,12 +155,13 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
         delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
     }
     
-    internal func heartRateQuery(withStartDate start: Date) -> HKQuery {
+    internal func heartRateQuery(withStartDate start: Date) -> HKQuery? {
         // Query all HR samples from the beginning of the workout session on the current device
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
         let datePredicate = HKQuery.predicateForSamples(withStart: start, end: nil, options: .strictEndDate )
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
         
-        let query:HKAnchoredObjectQuery = HKAnchoredObjectQuery(type: hrType,
+        let query:HKAnchoredObjectQuery = HKAnchoredObjectQuery(type: quantityType,
                                                                 predicate: predicate,
                                                                 anchor: hrAnchorValue,
                                                                 limit: Int(HKObjectQueryNoLimit)) {
