@@ -118,7 +118,7 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     // Set timer to meditate
     func setTimer() {
-        let countdown: TimeInterval = 10
+        let countdown: TimeInterval = 600
         let date = Date(timeIntervalSinceNow: countdown)
         self.internalTimer?.invalidate()
         self.internalTimer = Timer.scheduledTimer(timeInterval: countdown, target: self, selector: #selector(self.finishCurrentWorkout), userInfo: nil, repeats: false)
