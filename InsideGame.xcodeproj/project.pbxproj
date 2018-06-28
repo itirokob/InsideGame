@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		126823A020E44899007D5758 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB0AB20DD38D000C26E1D /* HealthKitSetupAssistant.swift */; };
+		12A0201920E55D6F00B3D150 /* WorkoutSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0201820E55D6F00B3D150 /* WorkoutSessionService.swift */; };
+		12A0201E20E565CF00B3D150 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0201D20E565CF00B3D150 /* ExerciseType.swift */; };
 		12D3DE8720DD6B2A0055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8620DD6B2A0055E207 /* HealthKit.framework */; };
 		12D3DE8A20DD6B310055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8920DD6B310055E207 /* HealthKit.framework */; };
 		A275C39220E2D8350026E79C /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = A275C38F20E2D8340026E79C /* TileSet.sks */; };
@@ -86,6 +88,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		12A0201820E55D6F00B3D150 /* WorkoutSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionService.swift; sourceTree = "<group>"; };
+		12A0201D20E565CF00B3D150 /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		12D3DE8620DD6B2A0055E207 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		12D3DE8820DD6B2A0055E207 /* InsideGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InsideGame.entitlements; sourceTree = "<group>"; };
 		12D3DE8920DD6B310055E207 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -163,6 +167,22 @@
 			path = Shared/Services;
 			sourceTree = SOURCE_ROOT;
 		};
+		12A0201720E55D5000B3D150 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				12A0201820E55D6F00B3D150 /* WorkoutSessionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		12A0201A20E5651600B3D150 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12A0201D20E565CF00B3D150 /* ExerciseType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		12D3DE8520DD6B2A0055E207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +257,7 @@
 		CB91E71020DC31020005DEC5 /* InsideWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				12A0201A20E5651600B3D150 /* Model */,
 				CB91E71720DC31020005DEC5 /* ExtensionDelegate.swift */,
 				CB69E52F20E3BC1E006E4C99 /* Extensions.swift */,
 				CB91E71B20DC31030005DEC5 /* Assets.xcassets */,
@@ -250,6 +271,7 @@
 				CB69E52C20E3B590006E4C99 /* Check Background */,
 				CB3F158420E3E34400016088 /* Waterlock */,
 				CBBFB0A520DD2A7900C26E1D /* Accelerometer */,
+				12A0201720E55D5000B3D150 /* Services */,
 			);
 			path = "InsideWatch Extension";
 			sourceTree = "<group>";
@@ -487,10 +509,12 @@
 				CB91E71A20DC31020005DEC5 /* NotificationController.swift in Sources */,
 				CB69E52E20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift in Sources */,
 				CB69E53020E3BC1E006E4C99 /* Extensions.swift in Sources */,
+				12A0201E20E565CF00B3D150 /* ExerciseType.swift in Sources */,
 				CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */,
 				CBBFB0A420DD2A7400C26E1D /* AccelerometerInterfaceController.swift in Sources */,
 				CBBFB0A920DD385B00C26E1D /* MeditationInterfaceController.swift in Sources */,
 				CB3F158620E3E3D400016088 /* WaterlockInterfaceController.swift in Sources */,
+				12A0201920E55D6F00B3D150 /* WorkoutSessionService.swift in Sources */,
 				CB91E71820DC31020005DEC5 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
