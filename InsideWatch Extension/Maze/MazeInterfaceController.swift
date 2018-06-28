@@ -42,6 +42,7 @@ class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeL
         self.wonLevel(level: MY_LEVEL)
         WKInterfaceDevice.current().play(.click)
         self.dismiss()
+        print("Ganhou!")
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
