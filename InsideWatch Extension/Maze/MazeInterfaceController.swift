@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
-class MazeInterfaceController: WKInterfaceController,WCSessionDelegate {
+class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeLevelDelegate {
     let MY_LEVEL = 1
 
     @IBOutlet var skInterface: WKInterfaceSKScene!
@@ -33,7 +33,15 @@ class MazeInterfaceController: WKInterfaceController,WCSessionDelegate {
             
             // Use a value that will maintain a consistent frame rate
             self.skInterface.preferredFramesPerSecond = 30
+            
+            scene.wonMazeDelegate = self
         }
+    }
+    
+    func wonMazeLevel() {
+        self.wonLevel(level: MY_LEVEL)
+        WKInterfaceDevice.current().play(.click)
+        self.dismiss()
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
