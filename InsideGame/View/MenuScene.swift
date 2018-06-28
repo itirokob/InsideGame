@@ -50,6 +50,12 @@ class MenuScene: SKScene, TreatWatchMessages {
                 self.levelButtons.append(button)
             }
         }
+        
+        let coordXRange = SKRange(lowerLimit: -240.0, upperLimit: 240.0)
+        let coordYRange = SKRange(lowerLimit: -161.5, upperLimit: 161.5)
+        
+        let constrainMap = SKConstraint.positionX(coordXRange, y: coordYRange)
+        self.map.constraints = [constrainMap]
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
