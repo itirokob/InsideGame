@@ -29,9 +29,6 @@ class MenuScene: SKScene, TreatWatchMessages {
     var map = SKTileMapNode()
     var selectedNode = SKNode()
     var stateLevel = ["unsolved", "unsolved", "unsolved", "unsolved"]
-    
-
-    let userDefaults = UserDefaults.standard
 
     func wonLevel(level: Int) {
         //Mudar a texture do levelButton de indice level
