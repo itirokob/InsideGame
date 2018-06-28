@@ -31,6 +31,7 @@ class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelega
         
         if hasWonBackgroundLevel {
             self.wonLevel(level: MY_LEVEL)
+            dismiss()
         }
     }
     
