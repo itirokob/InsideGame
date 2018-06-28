@@ -17,10 +17,13 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet private weak var deviceLabel : WKInterfaceLabel!
     @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
-    
+
+    @IBOutlet var timer: WKInterfaceTimer!
     @IBOutlet var goalCompleted: WKInterfaceLabel!
     
     let MY_LEVEL = 2
+    
+    var internalTimer: Timer?
     
     var heartRate = 1.0
 
@@ -90,16 +93,29 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
             //start a new workout
             self.workoutActive = true
             self.startStopButton.setTitle("Stop")
-            startWorkout()
+            
+            self.setTimer()
+            self.startWorkout()
         }
     }
     
-    func finishCurrentWorkout() {
+    @objc func finishCurrentWorkout() {
+        self.timer.stop()
         self.workoutActive = false
+        self.internalTimer?.invalidate()
         self.startStopButton.setTitle("Start")
         if let workout = self.session {
             healthStore.end(workout)
         }
+    }
+    
+    func setTimer() {
+        let countdown: TimeInterval = 15
+        let date = Date(timeIntervalSinceNow: countdown)
+        self.internalTimer?.invalidate()
+        self.internalTimer = Timer.scheduledTimer(timeInterval: countdown, target: self, selector: #selector(self.finishCurrentWorkout), userInfo: nil, repeats: false)
+        self.timer.setDate(date)
+        self.timer.start()
     }
     
     func updateHeartRate(_ samples: [HKSample]?) {
