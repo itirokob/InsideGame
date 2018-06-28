@@ -25,14 +25,14 @@ class MenuScene: SKScene, TreatWatchMessages {
         "I AM \nEXHAUSTED",
         "HELP ME! \nI'M DROWNING"
     ]
+    
+    let userDefaults = UserDefaults.standard
 
     public var hintLabel = SKLabelNode()
     public var levelButtons = [SKNode]()
     var map = SKTileMapNode()
     var selectedNode = SKNode()
     
-    let userDefaults = UserDefaults.standard
-
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         self.map = self.childNode(withName: "Tile Map Node") as! SKTileMapNode

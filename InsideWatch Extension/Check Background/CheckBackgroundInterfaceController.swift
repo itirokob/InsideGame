@@ -19,6 +19,7 @@ class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelega
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
         // Configure interface objects here.
     }
 
@@ -26,11 +27,9 @@ class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelega
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        let maxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
         let hasWonBackgroundLevel = self.userDefaults.bool(forKey: "wonBackgroundLevel")
         
-        //Se o maxLevel for (MY_LEVEL - 1), então o próximo level é o de background
-        if maxLevel == (MY_LEVEL - 1) && hasWonBackgroundLevel {
+        if hasWonBackgroundLevel {
             self.wonLevel(level: MY_LEVEL)
         }
     }
