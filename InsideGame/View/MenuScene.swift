@@ -21,6 +21,8 @@ class MenuScene: SKScene, TreatWatchMessages {
         "I AM \nEXHAUSTED",
         "HELP ME! \nI'M DROWNING"
     ]
+    
+    let userDefaults = UserDefaults.standard
 
     public var hintLabel = SKLabelNode()
     public var levelButtons = [SKNode]()
@@ -28,6 +30,7 @@ class MenuScene: SKScene, TreatWatchMessages {
     var selectedNode = SKNode()
     var stateLevel = ["unsolved", "unsolved", "unsolved", "unsolved"]
     
+
     let userDefaults = UserDefaults.standard
 
     func wonLevel(level: Int) {

@@ -77,18 +77,32 @@ class MenuViewController: UIViewController, WCSessionDelegate{
         }
     }
 
+
+    ///O Watch nos enviará uma mensagem ["newWonLevel" : númeroDaFase], logo, o conteúdo dessa mensagem será a fase (de 1 a 4)
+    ///Salvaremos no userDefaults: [levelX: true/false]
+    ///
+    /// - Parameters:
+    ///   - session: WCSession
+    ///   - message: ["newWonLevel" : númeroDaFase]
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        let currMaxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
-        
-        if let message = message["maxLevelReached"] as? Int{
-            if message > currMaxLevel {
-                self.userDefaults.set(message, forKey: "maxLevelReached")
-                DispatchQueue.main.async {
-                    self.delegate?.wonLevel(level: message)
-                }
+        if let message = message["newWonLevel"] as? Int {
+            self.userDefaults.set(true, forKey: "level\(message)")
+            
+            DispatchQueue.main.async {
+                self.delegate?.wonLevel(level: message)
             }
         }
-        
+    
+//        let currMaxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
+//
+//        if let message = message["maxLevelReached"] as? Int{
+//            if message > currMaxLevel {
+//                self.userDefaults.set(message, forKey: "maxLevelReached")
+//                DispatchQueue.main.async {
+//                    self.delegate?.wonLevel(level: message)
+//                }
+//            }
+//        }
     }
 
 }

@@ -13,7 +13,7 @@ import WatchConnectivity
 
 class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
 
-    @IBOutlet private weak var label: WKInterfaceLabel!
+    @IBOutlet private weak var heartRateLabel: WKInterfaceLabel!
     @IBOutlet private weak var deviceLabel : WKInterfaceLabel!
     @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
@@ -25,7 +25,8 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var internalTimer: Timer?
     
-    var heartRate = 1.0
+    var initialHeartRate = 0.0
+    var lowestHeartRate = 0.0
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
@@ -40,9 +41,11 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
     
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
@@ -76,15 +79,15 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     override func willDisappear() {
         super.willDisappear()
-        
+        // finishes workout whenever view will disappear
         self.finishCurrentWorkout()
     }
     
     func displayNotAllowed() {
-        label.setText("Healthkit not available.")
+        heartRateLabel.setText("Healthkit not available.")
     }
     
-    // MARK: - Actions
+    // When Start/Stop button is pressed
     @IBAction func startBtnTapped() {
         if (self.workoutActive) {
             //finish the current workout
@@ -107,10 +110,18 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
         if let workout = self.session {
             healthStore.end(workout)
         }
+        self.displayHRValues()
     }
     
+    func displayHRValues() {
+        self.goalCompleted.setText("i: \(self.initialHeartRate)  l: \(self.lowestHeartRate)")
+    }
+    
+    
+    
+    // Set timer to meditate
     func setTimer() {
-        let countdown: TimeInterval = 15
+        let countdown: TimeInterval = 600
         let date = Date(timeIntervalSinceNow: countdown)
         self.internalTimer?.invalidate()
         self.internalTimer = Timer.scheduledTimer(timeInterval: countdown, target: self, selector: #selector(self.finishCurrentWorkout), userInfo: nil, repeats: false)
@@ -124,15 +135,14 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
         DispatchQueue.main.async {
             guard let sample = heartRateSamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
-            if self.heartRate == 1.0 {  // set initial heart rate
-                self.heartRate = value
-            } else {
-                if self.heartRate - value >= 10 {
-                    self.goalCompleted.setText("i: \(self.heartRate)  o: \(value)")
-                }
+            if self.lowestHeartRate > value || self.lowestHeartRate == 0.0 {
+                self.lowestHeartRate = value
+            }
+            if self.initialHeartRate == 0.0 {  // set initial heart rate
+                self.initialHeartRate = value
             }
             
-            self.label.setText(String(UInt16(value)))
+            self.heartRateLabel.setText(String(UInt16(value)))
             
             // retrieve source from sample
             let name = sample.sourceRevision.source.name
@@ -186,18 +196,14 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
         
         guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
         let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
-        //let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
         
         
         let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-            //guard let newAnchor = newAnchor else {return}
-            //self.anchor = newAnchor
             self.updateHeartRate(sampleObjects)
         }
         
         heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            //self.anchor = newAnchor!
             self.updateHeartRate(samples)
         }
         return heartRateQuery
@@ -230,14 +236,14 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
             self.currenQuery = query
             healthStore.execute(query)
         } else {
-            label.setText("cannot start")
+            heartRateLabel.setText("cannot start")
         }
     }
     
     func workoutDidEnd(_ date : Date) {
         healthStore.stop(self.currenQuery!)
-        heartRate = 1.0
-        label.setText("---")
+        initialHeartRate = 0.0
+        heartRateLabel.setText("---")
         session = nil
     }
 }

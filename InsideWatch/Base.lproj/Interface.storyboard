@@ -101,7 +101,7 @@
                         <label alignment="left" text="Label" id="Vxi-hb-kQ9"/>
                         <group width="1" alignment="left" layout="vertical" id="lSY-2P-Tw4">
                             <items>
-                                <timer alignment="center" textAlignment="center" id="jC1-h5-EHQ">
+                                <timer alignment="center" textAlignment="center" previewedSeconds="600" id="jC1-h5-EHQ">
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                     <calendarUnit key="units" minute="YES" second="YES"/>
                                 </timer>
@@ -117,7 +117,7 @@
                         <outlet property="deviceLabel" destination="oZd-4h-Qt9" id="hP4-YK-aOx"/>
                         <outlet property="goalCompleted" destination="Vxi-hb-kQ9" id="TrG-Fk-SN0"/>
                         <outlet property="heart" destination="eB2-Sg-lBd" id="Eva-Vg-iPl"/>
-                        <outlet property="label" destination="3H5-x4-2wf" id="Q5l-hM-Y9N"/>
+                        <outlet property="heartRateLabel" destination="3H5-x4-2wf" id="iRe-Vj-HU4"/>
                         <outlet property="startStopButton" destination="vV0-oA-vk2" id="XQ0-nf-BVZ"/>
                         <outlet property="timer" destination="jC1-h5-EHQ" id="9AF-2F-rjs"/>
                     </connections>

@@ -17,14 +17,13 @@ extension WKInterfaceController {
     ///
     /// - Parameter level: level won
     func wonLevel(level:Int){
-        let userDefaults = UserDefaults.standard
 
-        //Update userDefaults
-        userDefaults.set(level + 1, forKey: "maxLevelReached")
+        //Update userDefaults: não preciso atualizar o userDefaults
+//        userDefaults.set(level + 1, forKey: "maxLevelReached")
         
         //Send iPhone a message
         if(WCSession.default.isReachable){
-            let message = ["maxLevelReached": level + 1]
+            let message = ["newWonLevel": level]
             WCSession.default.sendMessage(message, replyHandler: nil)
         }
     }
