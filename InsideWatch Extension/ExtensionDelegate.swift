@@ -14,7 +14,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        UserDefaults.standard.register(defaults: ["maxLevelReached" : 0])
+//        UserDefaults.standard.register(defaults: ["maxLevelReached" : 0])
         UserDefaults.standard.register(defaults: ["wonBackgroundLevel" : false])
     }
 
@@ -28,12 +28,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
     
     func applicationDidEnterBackground() {
-        let maxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
-
-        //Se o maxLevel for (BACKGROUND_LEVEL - 1), então o próximo level é o de background
-        if maxLevel == (BACKGROUND_LEVEL - 1) {
-            self.userDefaults.set(true, forKey: "wonBackgroundLevel")
-        }
+        self.userDefaults.set(true, forKey: "wonBackgroundLevel")
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {

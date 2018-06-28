@@ -18,9 +18,12 @@ class WaterlockInterfaceController: WKInterfaceController {
     var workoutSession:HKWorkoutSession?
     let healthStore = HKHealthStore()
     
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
+
         let workoutConfig = HKWorkoutConfiguration()
         workoutConfig.activityType = .swimming
         workoutConfig.swimmingLocationType = .pool

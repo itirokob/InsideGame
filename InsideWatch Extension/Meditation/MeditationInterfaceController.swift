@@ -41,8 +41,11 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
     
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {

@@ -17,9 +17,12 @@ class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeL
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
+
         // Configure interface objects here.
         
         // Load the SKScene from 'GameScene.sks'
