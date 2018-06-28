@@ -8,11 +8,17 @@
 
 import SpriteKit
 import CoreMotion
+import WatchConnectivity
+
+protocol WonMazeLevelDelegate {
+    func wonMazeLevel()
+}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     let manager = CMMotionManager()
     var player = SKSpriteNode()
     var endNode = SKSpriteNode()
+    var wonMazeDelegate:WonMazeLevelDelegate?
     
     override func sceneDidLoad() {
         self.player = self.childNode(withName: "player") as! SKSpriteNode
@@ -29,11 +35,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        var bodyA = contact.bodyA
-        var bodyB = contact.bodyB
+        let bodyA = contact.bodyA
+        let bodyB = contact.bodyB
         
         if (bodyA.categoryBitMask == 1 && bodyB.categoryBitMask == 2) || (bodyA.categoryBitMask == 2 && bodyB.categoryBitMask == 1) {
-            print("You won!")
+            //Mandar para o iPhone que ganhei e dar dismiss nessa tela
+            self.wonMazeDelegate?.wonMazeLevel()
         }
     }
     
