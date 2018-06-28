@@ -201,7 +201,6 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
         }
         
         heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            //self.anchor = newAnchor!
             self.updateHeartRate(samples)
         }
         return heartRateQuery
