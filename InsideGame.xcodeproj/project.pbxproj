@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		126823A020E44899007D5758 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB0AB20DD38D000C26E1D /* HealthKitSetupAssistant.swift */; };
 		12D3DE8720DD6B2A0055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8620DD6B2A0055E207 /* HealthKit.framework */; };
 		12D3DE8A20DD6B310055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8920DD6B310055E207 /* HealthKit.framework */; };
 		A275C39220E2D8350026E79C /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = A275C38F20E2D8340026E79C /* TileSet.sks */; };
@@ -145,6 +146,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1268239D20E4479A007D5758 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1268239E20E447A9007D5758 /* Services */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1268239E20E447A9007D5758 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CBBFB0AB20DD38D000C26E1D /* HealthKitSetupAssistant.swift */,
+			);
+			name = Services;
+			path = Shared/Services;
+			sourceTree = SOURCE_ROOT;
+		};
 		12D3DE8520DD6B2A0055E207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +191,7 @@
 		CB91E6E020DC30DF0005DEC5 = {
 			isa = PBXGroup;
 			children = (
+				1268239D20E4479A007D5758 /* Shared */,
 				CB91E6EB20DC30DF0005DEC5 /* InsideGame */,
 				CB91E70120DC31010005DEC5 /* InsideWatch */,
 				CB91E71020DC31020005DEC5 /* InsideWatch Extension */,
@@ -296,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				CBBFB0A820DD385B00C26E1D /* MeditationInterfaceController.swift */,
-				CBBFB0AB20DD38D000C26E1D /* HealthKitSetupAssistant.swift */,
 			);
 			path = Meditation;
 			sourceTree = "<group>";
@@ -453,6 +471,7 @@
 				CB91E72E20DC34B10005DEC5 /* LevelViewController.swift in Sources */,
 				A275C39620E2DE450026E79C /* MenuViewController.swift in Sources */,
 				A275C39420E2D8350026E79C /* MenuScene.swift in Sources */,
+				126823A020E44899007D5758 /* HealthKitSetupAssistant.swift in Sources */,
 				CB91E6EF20DC30DF0005DEC5 /* ViewController.swift in Sources */,
 				CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */,
 			);
