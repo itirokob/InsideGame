@@ -20,6 +20,35 @@ class ViewController: UIViewController, WCSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Request HealthKit authorization
+        HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                return
+            }
+            print("HealthKit Successfully Authorized.")
+        }
+        
+//        let healthService:HealthKitSetupAssistant = HealthKitSetupAssistant()
+//        healthService.authorizeHealthKitAccess {
+//            (accessGranted, error) in
+//            DispatchQueue.main.async {
+//                if accessGranted {
+//                    self.refresh(nil)
+//                } else {
+//                    print(
+//                        "HK access denied! \n\(String(describing: error))"
+//                    )
+//                } }
+//        }
+        
         if(WCSession.isSupported()){
             let session = WCSession.default
             session.delegate = self

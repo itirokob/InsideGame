@@ -60,6 +60,21 @@ class MenuViewController: UIViewController, WCSessionDelegate{
             // Use a value that will maintain a consistent frame rate
             self.menuScene.preferredFramesPerSecond = 30
         }
+        // Request HealthKit authorization
+        HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+            guard authorized else {
+                
+                let baseMessage = "HealthKit Authorization Failed"
+                
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                } else {
+                    print(baseMessage)
+                }
+                return
+            }
+            print("HealthKit Successfully Authorized.")
+        }
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
