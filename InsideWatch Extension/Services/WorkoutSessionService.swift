@@ -45,13 +45,17 @@ class WorkoutSessionService: NSObject {
     
     // ****** Current Workout Values
     var heartRate: HKQuantity
-    
+
     init?(exerciseType: ExerciseType) {
         self.exerciseType = exerciseType
         let hkWorkoutConfiguration = HKWorkoutConfiguration()
         hkWorkoutConfiguration.activityType = exerciseType.activityType
         hkWorkoutConfiguration.locationType = exerciseType.location
-        
+        if(exerciseType.activityType == .swimming){
+            hkWorkoutConfiguration.swimmingLocationType = HKWorkoutSwimmingLocationType.pool
+            hkWorkoutConfiguration.lapLength = HKQuantity(unit: HKUnit.meter(), doubleValue: 25.0)
+        }
+
         do {
             session = try HKWorkoutSession(configuration: hkWorkoutConfiguration)
         } catch {
