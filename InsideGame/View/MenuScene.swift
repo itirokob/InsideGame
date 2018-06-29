@@ -38,13 +38,14 @@ class MenuScene: SKScene, TreatWatchMessages {
         (self.levelButtons[level-1] as! SKSpriteNode).run(setSolved)
         self.userDefaults.set(true, forKey: "level\(level)")
         self.stateLevel[level-1] = "solved"
+
     }
 
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         self.map = self.childNode(withName: "Tile Map Node") as! SKTileMapNode
         self.hintLabel = map.childNode(withName: "hintLabel") as! SKLabelNode
-        for index in 0 ..< numberOfLevels {
+        for index in 0 ... numberOfLevels {
             if let button = map.childNode(withName: "level\(index)") {
                 setButtonTexture(button: button, to: stateLevel[index-1])
                 self.levelButtons.append(button)
@@ -73,14 +74,15 @@ class MenuScene: SKScene, TreatWatchMessages {
         if selectedNode.name?.range(of: "level") != nil {
             //print ("sou clicável")
             let index = selectedNode.name?.index((selectedNode.name?.startIndex)!, offsetBy: 5)
-            let level = Int(String((selectedNode.name?[index!])!))
-            self.hintLabel.text = hints[Int(String(level!))! - 1]
-            for (i, button) in levelButtons.enumerated() {setButtonTexture(button: button, to: stateLevel[i])}
-            setButtonTexture(button: self.levelButtons[level!-1], to: "selected")
+            if let level = Int(String((selectedNode.name?[index!])!)) {
+                self.hintLabel.text = hints[Int(String(level))! - 1]
+                for (i, button) in levelButtons.enumerated() {setButtonTexture(button: button, to: stateLevel[i])}
+                setButtonTexture(button: self.levelButtons[level-1], to: "selected")
 
-            if(WCSession.default.isReachable){
-                let message = ["currentLevel": level]
-                WCSession.default.sendMessage(message, replyHandler: nil)
+                if(WCSession.default.isReachable){
+                    let message = ["currentLevel": level]
+                    WCSession.default.sendMessage(message, replyHandler: nil)
+                }
             }
         }
     }
