@@ -8,11 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Symbol.ttf">
-            <string>Symbol</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="Nvc-Q8-5jB">
@@ -91,45 +86,23 @@
             <objects>
                 <controller identifier="level2Controller" id="jzO-zt-cmM" customClass="MeditationInterfaceController" customModule="InsideWatch_Extension">
                     <items>
-                        <label height="20" alignment="center" text="Device Name" id="oZd-4h-Qt9"/>
-                        <group width="1" alignment="left" id="n02-GJ-MOd">
+                        <group width="1" height="1" alignment="center" layout="overlap" id="lSY-2P-Tw4">
                             <items>
-                                <imageView alignment="left" image="heart" id="eB2-Sg-lBd"/>
-                                <label alignment="center" text="---" minimumScaleFactor="0.20000000000000001" id="3H5-x4-2wf">
-                                    <fontDescription key="font" name="Symbol" family="Symbol" pointSize="28"/>
-                                </label>
-                                <label alignment="right" text="BPM" id="PHe-2e-eE0">
-                                    <color key="textColor" red="0.86132884030000001" green="0.058584794400000001" blue="0.11313973369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                </label>
-                            </items>
-                        </group>
-                        <label alignment="left" text="Label" id="Vxi-hb-kQ9"/>
-                        <group width="1" alignment="left" layout="vertical" id="lSY-2P-Tw4">
-                            <items>
-                                <timer alignment="center" textAlignment="center" previewedSeconds="600" id="jC1-h5-EHQ">
+                                <button alignment="center" verticalAlignment="center" backgroundImage="frodacrara" id="FoT-Qq-E7g"/>
+                                <timer alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="600" id="jC1-h5-EHQ">
+                                    <color key="textColor" red="0.0" green="0.12171766489999999" blue="0.021294487849999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                    <calendarUnit key="units" second="YES"/>
                                 </timer>
-                                <button width="1" alignment="left" title="Start" id="vV0-oA-vk2">
-                                    <connections>
-                                        <action selector="startBtnTapped" destination="jzO-zt-cmM" id="LOX-b0-RdD"/>
-                                    </connections>
-                                </button>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="deviceLabel" destination="oZd-4h-Qt9" id="hP4-YK-aOx"/>
-                        <outlet property="goalCompleted" destination="Vxi-hb-kQ9" id="TrG-Fk-SN0"/>
-                        <outlet property="heart" destination="eB2-Sg-lBd" id="Eva-Vg-iPl"/>
-                        <outlet property="heartRateLabel" destination="3H5-x4-2wf" id="iRe-Vj-HU4"/>
-                        <outlet property="startStopButton" destination="vV0-oA-vk2" id="XQ0-nf-BVZ"/>
                         <outlet property="timer" destination="jC1-h5-EHQ" id="9AF-2F-rjs"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="394" y="311"/>
+            <point key="canvasLocation" x="394" y="315"/>
         </scene>
         <!--level4Controller-->
         <scene sceneID="BXd-d0-zic">
