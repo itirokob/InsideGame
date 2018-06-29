@@ -19,9 +19,12 @@
             <objects>
                 <controller id="L5Q-5n-x7A" customClass="InterfaceController" customModule="InsideWatch_Extension">
                     <items>
-                        <label width="136" height="174" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="WJl-7q-xt6"/>
+                        <label width="136" height="174" alignment="center" verticalAlignment="center" text="WAITING FOR INSTRUCTIONS" textAlignment="center" numberOfLines="2" id="WJl-7q-xt6">
+                            <color key="textColor" red="0.12549019607843137" green="0.86274509803921573" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
+                        </label>
                     </items>
-                    <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.11372549019607843" green="0.16470588235294117" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="messageReceived" destination="WJl-7q-xt6" id="HAt-vy-tnp"/>
                     </connections>
@@ -131,7 +134,16 @@
         <!--Waterlock-->
         <scene sceneID="BXd-d0-zic">
             <objects>
-                <controller identifier="level4Controller" title="Waterlock" id="Map-IB-FIa" customClass="WaterlockInterfaceController" customModule="InsideWatch_Extension"/>
+                <controller identifier="level4Controller" title="Waterlock" id="Map-IB-FIa" customClass="WaterlockInterfaceController" customModule="InsideWatch_Extension">
+                    <items>
+                        <group alignment="center" verticalAlignment="center" layout="overlap" id="f8K-zT-Fcn">
+                            <items>
+                                <button alignment="center" verticalAlignment="center" backgroundImage="waterlockButton" id="aNc-5U-cNN"/>
+                                <imageView alignment="left" verticalAlignment="bottom" image="waves" id="lj4-ol-F9B"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="713" y="314"/>
         </scene>
