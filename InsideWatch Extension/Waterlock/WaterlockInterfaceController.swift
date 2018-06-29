@@ -13,10 +13,11 @@ import HealthKit
 class WaterlockInterfaceController: WKInterfaceController {
     var workoutSession:HKWorkoutSession?
     let healthStore = HKHealthStore()
-    
+    let MY_LEVEL = 4
+
     let userDefaults = UserDefaults.standard
     
-    let MY_LEVEL = 4
+    @IBOutlet var wavesImage: WKInterfaceImage!
     @IBOutlet var errorLabel: WKInterfaceLabel!
     @IBOutlet var finishLevelButton: WKInterfaceButton!
     /// To enable waterlock, a workout must be running. Only in first time this controller is launched, we'll set it with a swimming workout.
@@ -37,7 +38,8 @@ class WaterlockInterfaceController: WKInterfaceController {
             healthStore.start(workoutSession!)
             self.errorLabel.setText("")
         }catch _ as NSError{
-            self.finishLevelButton.setEnabled(false)
+            self.finishLevelButton.setHidden(true)
+            self.wavesImage.setHidden(true)
             self.errorLabel.setText("Your device does not support this level.")
         }
     }
