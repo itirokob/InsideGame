@@ -25,11 +25,8 @@ class MeditationInterfaceController: WKInterfaceController {
     var initialHeartRate = 0.0
     var lowestHeartRate = 0.0
     
-    var heartRates:[Double] = [Double]()
-    
     //State of the app - is the workout activated
     var workoutActive = false
-    
     var workoutSession: WorkoutSessionService?
     
     let userDefaults = UserDefaults.standard
@@ -46,7 +43,6 @@ class MeditationInterfaceController: WKInterfaceController {
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             guard authorized else {
                 let baseMessage = "HealthKit Authorization Failed"
-                self.displayNotAllowed()
 
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
@@ -65,11 +61,8 @@ class MeditationInterfaceController: WKInterfaceController {
         self.finishCurrentWorkout()
     }
     
-    func displayNotAllowed() {
-        heartRateLabel.setText("Healthkit not available.")
-    }
     
-    // When Start/Stop button is pressed
+    /// When Start/Stop button is pressed, finishes or starts a new workout
     @IBAction func startBtnTapped() {
         if (self.workoutActive) {
             //finish the current workout
@@ -80,9 +73,9 @@ class MeditationInterfaceController: WKInterfaceController {
         }
     }
     
+    /// Starts a workout session and starts the timer
     func startNewWorkout() {
         self.workoutActive = true
-        self.startStopButton.setTitle("Stop")
         self.setTimer()
         self.workoutSession = WorkoutSessionService(exerciseType: ExerciseType.running)
         if workoutSession != nil {
@@ -91,20 +84,15 @@ class MeditationInterfaceController: WKInterfaceController {
         }
     }
     
+    /// Finishes workout and stops the timer
     @objc func finishCurrentWorkout() {
         self.timer.stop()
         self.workoutActive = false
         self.internalTimer?.invalidate()
-        self.startStopButton.setTitle("Start")
         self.workoutSession?.stopSession()
-        self.displayHRValues()
     }
     
-    func displayHRValues() {
-        self.goalCompleted.setText("i: \(self.initialHeartRate)  l: \(self.lowestHeartRate)")
-    }
-    
-    // Set timer to meditate
+    /// Sets timer to meditate and sets an internal timer to finish the workout when times up
     func setTimer() {
         let countdown: TimeInterval = 600
         let date = Date(timeIntervalSinceNow: countdown)
@@ -114,6 +102,10 @@ class MeditationInterfaceController: WKInterfaceController {
         self.timer.start()
     }
     
+    
+    /// updates the lowest and initial heart rates
+    ///
+    /// - Parameter heartRate: double value of the heart rate
     func updateHeartRate(heartRate: Double) {
         DispatchQueue.main.async {
             if self.lowestHeartRate > heartRate || self.lowestHeartRate == 0.0 {
@@ -122,35 +114,15 @@ class MeditationInterfaceController: WKInterfaceController {
             if self.initialHeartRate == 0.0 {  // set initial heart rate
                 self.initialHeartRate = heartRate
             }
-            
-            self.heartRateLabel.setText(String(UInt16(heartRate)))
-            
-            // retrieve source from sample
-            self.animateHeart()
         }
     }
     
-    func animateHeart() {
-        self.animate(withDuration: 0.5) {
-            self.heart.setWidth(60)
-            self.heart.setHeight(90)
-        }
-        
-        let when = DispatchTime.now() + Double(Int64(0.5 * double_t(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        
-        DispatchQueue.global(qos: .default).async {
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                self.animate(withDuration: 0.5, animations: {
-                    self.heart.setWidth(50)
-                    self.heart.setHeight(80)
-                })
-            }
-        }
-    }
     
+    /// Resets the initial heart rate value to 0.0
+    ///
+    /// - Parameter date: date in which the workout started
     func workoutDidEnd(_ date : Date) {
         self.initialHeartRate = 0.0
-        self.heartRateLabel.setText("---")
         if (initialHeartRate - lowestHeartRate >= 0.1*initialHeartRate) {
             self.wonLevel(level: MY_LEVEL)
         }

@@ -79,13 +79,19 @@ class WorkoutSessionService: NSObject {
 
 extension WorkoutSessionService: HKWorkoutSessionDelegate {
     
+    /// Does activity whenever state of the workout session changes
+    ///
+    /// - Parameters:
+    ///   - workoutSession: workout session
+    ///   - toState: value of the new state
+    ///   - fromState: value of old state
+    ///   - date: current date
     func workoutSession(_ workoutSession: HKWorkoutSession,
                         didChangeTo toState: HKWorkoutSessionState,
                         from fromState: HKWorkoutSessionState, date: Date) {
         
         DispatchQueue.main.async {
             switch toState {
-                
             case .running:
                 if (self.exerciseType.activityType == .running) {
                     self.sessionStarted(date)
@@ -93,28 +99,33 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
                     let extensionObject = WKExtension.shared()
                     extensionObject.enableWaterLock()
                 }
+                // Let the delegate know
                 self.delegate?.workoutSessionService(self, didStartWorkoutAtDate: date)
-                
+                break
             case .ended:
                 if (self.exerciseType.activityType == .running) {
                     self.sessionEnded(date)
                 }
+                // Let the delegate know
                 self.delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
+                break
             default:
                 print("Something weird happened. Not a valid state")
+                break
             }
         }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession,
                         didFailWithError error: Error) {
-        sessionEnded(Date())
+        if (self.exerciseType.activityType == .running) {
+            sessionEnded(Date())
+        }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent) {
         switch event.type {
         case .pauseOrResumeRequest:
-            
             switch workoutSession.state {
             case .running:
                 self.stopSession()
@@ -122,20 +133,20 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
                 self.startSession()
             default: break
             }
-            
             break
         default:
             break
         }
     }
     
+    /// When session starts, creates query to get heart rates
+    ///
+    /// - Parameter date: <#date description#>
     fileprivate func sessionStarted(_ date: Date) {
         // Create and start heart rate query
         hrQuery = heartRateQuery(withStartDate: date)
         healthService.healthKitStore.execute(hrQuery!)
         startDate = date
-        // Let the delegate know
-        // delegate?.workoutSessionService(self, didStartWorkoutAtDate: date)
     }
     
     fileprivate func sessionEnded(_ date: Date) {
@@ -143,8 +154,6 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
         healthService.healthKitStore.stop(hrQuery!)
         hrQuery = nil
         endDate = date
-        // Let the delegate know
-        // delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
     }
     
     internal func heartRateQuery(withStartDate start: Date) -> HKQuery? {
@@ -171,6 +180,9 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
         return query
     }
     
+    /// Selects samples and gets double value
+    ///
+    /// - Parameter samples: heart rate samples
     fileprivate func newHRSamples(_ samples: [HKSample]?) {
         // Abort if the data isn't right
         guard let samples = samples as? [HKQuantitySample], samples.count > 0 else {
