@@ -38,7 +38,8 @@ class WaterlockInterfaceController: WKInterfaceController {
             healthStore.start(workoutSession!)
             self.errorLabel.setText("")
         }catch _ as NSError{
-            self.finishLevelButton.setEnabled(false)
+            self.finishLevelButton.setHidden(true)
+            self.wavesImage.setHidden(true)
             self.errorLabel.setText("Your device does not support this level.")
         }
     }
