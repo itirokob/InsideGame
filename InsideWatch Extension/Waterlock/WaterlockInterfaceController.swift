@@ -11,12 +11,14 @@ import Foundation
 import HealthKit
 
 class WaterlockInterfaceController: WKInterfaceController {
-    var workoutSession:HKWorkoutSession?
-    let healthStore = HKHealthStore()
+    var workoutSession:WorkoutSessionService?
 
     let userDefaults = UserDefaults.standard
 
-
+    @IBAction func stopButtonPressed() {
+        workoutSession?.stopSession()
+    }
+    
     /// To enable waterlock, a workout must be running. Only in first time this controller is launched, we'll set it with a swimming workout.
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -54,16 +56,8 @@ class WaterlockInterfaceController: WKInterfaceController {
     }
 }
 
-extension WaterlockInterfaceController:HKWorkoutSessionDelegate{
-    /// When a workout session changes it's state, this function will be called. When it starts, we'll enable WaterLock
-    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        switch toState{
-        case .running:
-            let extensionObject = WKExtension.shared()
-            extensionObject.enableWaterLock()
-        default:
-            print("bla")
-        }
+extension WaterlockInterfaceController: WorkoutSessionServiceDelegate {
+    func workoutSessionService(_ service: WorkoutSessionService, didStartWorkoutAtDate startDate: Date) {
     }
 
     func workoutSessionService(_ service: WorkoutSessionService, didStopWorkoutAtDate endDate: Date) {
