@@ -16,23 +16,19 @@ class MeditationInterfaceController: WKInterfaceController {
 
     @IBOutlet var timer: WKInterfaceTimer!
     
+    // Level of the game
     let MY_LEVEL = 2
     
     var internalTimer: Timer?
     
+    // This puzzle compares the initial and the lowest heart rate values to check if the person
+    // is meditating
     var initialHeartRate = 0.0
     var lowestHeartRate = 0.0
     
-    let healthStore = HKHealthStore()
-    
     //State of the app - is the workout activated
     var workoutActive = false
-    
-    // define the activity type and location
-    var session : HKWorkoutSession?
-    let heartRateUnit = HKUnit(from: "count/min")
-    //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
-    var currenQuery : HKQuery?
+    var workoutSession: WorkoutSessionService?
     
     let userDefaults = UserDefaults.standard
     
@@ -40,7 +36,6 @@ class MeditationInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
         self.timer.setHidden(true)
-
     }
     
     override func willActivate() {
@@ -76,120 +71,78 @@ class MeditationInterfaceController: WKInterfaceController {
             self.finishCurrentWorkout()
         } else {
             //start a new workout
-            self.workoutActive = true
-
-            self.timer.setHidden(false)
-            self.setTimer()
-            self.startWorkout()
+            self.startNewWorkout()
         }
     }
     
-    @objc func finishCurrentWorkout() {
-        self.timer.stop()
-        self.workoutActive = false
-        self.internalTimer?.invalidate()
-        if let workout = self.session {
-            healthStore.end(workout)
+    /// Starts a workout session and starts the timer
+    func startNewWorkout() {
+        self.workoutActive = true
+        self.setTimer()
+        self.workoutSession = WorkoutSessionService(exerciseType: ExerciseType.running)
+        if workoutSession != nil {
+            workoutSession!.delegate = self
+            workoutSession!.startSession()
         }
     }
-    
     
     // Set timer to meditate
     func setTimer() {
-        let countdown: TimeInterval = 15
+        let countdown: TimeInterval = 600
         let date = Date(timeIntervalSinceNow: countdown)
         self.internalTimer?.invalidate()
         self.internalTimer = Timer.scheduledTimer(timeInterval: countdown, target: self, selector: #selector(self.finishCurrentWorkout), userInfo: nil, repeats: false)
+        self.timer.setHidden(false)
         self.timer.setDate(date)
         self.timer.start()
     }
     
-    func updateHeartRate(_ samples: [HKSample]?) {
-        guard let heartRateSamples = samples as? [HKQuantitySample] else {return}
-        
+    /// Finishes workout and stops the timer
+    @objc func finishCurrentWorkout() {
+        self.timer.stop()
+        self.workoutActive = false
+        self.internalTimer?.invalidate()
+        self.workoutSession?.stopSession()
+    }
+    
+    
+    /// updates the lowest and initial heart rates
+    ///
+    /// - Parameter heartRate: double value of the heart rate
+    func updateHeartRate(heartRate: Double) {
         DispatchQueue.main.async {
-            guard let sample = heartRateSamples.first else{return}
-            let value = sample.quantity.doubleValue(for: self.heartRateUnit)
-            if self.lowestHeartRate > value || self.lowestHeartRate == 0.0 {
-                self.lowestHeartRate = value
+            if self.lowestHeartRate > heartRate || self.lowestHeartRate == 0.0 {
+                self.lowestHeartRate = heartRate
             }
             if self.initialHeartRate == 0.0 {  // set initial heart rate
-                self.initialHeartRate = value
+                self.initialHeartRate = heartRate
             }
+        }
+    }
+    
+    /// Resets the initial heart rate value to 0.0
+    ///
+    /// - Parameter date: date in which the workout started
+    func workoutDidEnd(_ date : Date) {
+        self.initialHeartRate = 0.0
+        if (initialHeartRate - lowestHeartRate >= 0.1*initialHeartRate) {
+            self.wonLevel(level: MY_LEVEL)
         }
     }
 }
 
-extension MeditationInterfaceController: HKWorkoutSessionDelegate {
+extension MeditationInterfaceController: WorkoutSessionServiceDelegate {
     
-    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        switch toState {
-        case .running:
-            workoutDidStart(date)
-        case .ended:
-            workoutDidEnd(date)
-        default:
-            print("Unexpected state \(toState)")
-        }
+    func workoutSessionService(_ service: WorkoutSessionService, didStopWorkoutAtDate endDate: Date) {
+        self.workoutDidEnd(endDate)
     }
     
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        // Do nothing for now
-        print("Workout error")
+    func workoutSessionServiceDidSave(_ service: WorkoutSessionService) {
+        self.dismiss()
     }
     
-    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
-        
-        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
-        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
-        
-        
-        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-            self.updateHeartRate(sampleObjects)
-        }
-        
-        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            self.updateHeartRate(samples)
-        }
-        return heartRateQuery
+    func workoutSessionService(_ service: WorkoutSessionService, didUpdateHeartrate heartRate:Double) {
+        self.updateHeartRate(heartRate: heartRate)
     }
     
-    func startWorkout() {
-        
-        // If we have already started the workout, then do nothing.
-        if (session != nil) {
-            return
-        }
-        
-        // Configure the workout session.
-        let workoutConfiguration = HKWorkoutConfiguration()
-        workoutConfiguration.activityType = .crossTraining
-        workoutConfiguration.locationType = .indoor
-        
-        do {
-            session = try HKWorkoutSession(configuration: workoutConfiguration)
-            session?.delegate = self
-        } catch {
-            fatalError("Unable to create the workout session!")
-        }
-        
-        healthStore.start(self.session!)
-    }
-    
-    func workoutDidStart(_ date : Date) {
-        if let query = createHeartRateStreamingQuery(date) {
-            self.currenQuery = query
-            healthStore.execute(query)
-        }
-    }
-    
-    func workoutDidEnd(_ date : Date) {
-        healthStore.stop(self.currenQuery!)
-        if (initialHeartRate - lowestHeartRate >= 0.1*initialHeartRate) {
-            self.wonLevel(level: MY_LEVEL)
-        }
-        self.initialHeartRate = 0.0
-        session = nil
-    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124A313020E6E22800829A86 /* WorkoutSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A312F20E6E22800829A86 /* WorkoutSessionService.swift */; };
+		124A313320E6E2E400829A86 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A313220E6E2E400829A86 /* ExerciseType.swift */; };
 		126823A020E44899007D5758 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB0AB20DD38D000C26E1D /* HealthKitSetupAssistant.swift */; };
 		12D3DE8720DD6B2A0055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8620DD6B2A0055E207 /* HealthKit.framework */; };
 		12D3DE8A20DD6B310055E207 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D3DE8920DD6B310055E207 /* HealthKit.framework */; };
@@ -82,6 +84,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		124A312F20E6E22800829A86 /* WorkoutSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionService.swift; sourceTree = "<group>"; };
+		124A313220E6E2E400829A86 /* ExerciseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		12D3DE8620DD6B2A0055E207 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		12D3DE8820DD6B2A0055E207 /* InsideGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InsideGame.entitlements; sourceTree = "<group>"; };
 		12D3DE8920DD6B310055E207 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -138,6 +142,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124A312E20E6E21500829A86 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				124A312F20E6E22800829A86 /* WorkoutSessionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		124A313120E6E2BB00829A86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				124A313220E6E2E400829A86 /* ExerciseType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1268239D20E4479A007D5758 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				12D3DE8820DD6B2A0055E207 /* InsideGame.entitlements */,
-				CB91E72C20DC34470005DEC5 /* Model */,
 				CB91E72B20DC34390005DEC5 /* View */,
 				CB91E72A20DC342A0005DEC5 /* Controllers */,
 				CB91E6F320DC30E00005DEC5 /* Assets.xcassets */,
@@ -229,6 +248,8 @@
 		CB91E71020DC31020005DEC5 /* InsideWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				124A313120E6E2BB00829A86 /* Model */,
+				124A312E20E6E21500829A86 /* Services */,
 				CB91E71720DC31020005DEC5 /* ExtensionDelegate.swift */,
 				CB69E52F20E3BC1E006E4C99 /* Extensions.swift */,
 				CB91E71B20DC31030005DEC5 /* Assets.xcassets */,
@@ -263,13 +284,6 @@
 				CB91E6F520DC30E00005DEC5 /* LaunchScreen.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		CB91E72C20DC34470005DEC5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		CBBFB08A20DC7BC000C26E1D /* Main */ = {
@@ -466,8 +480,10 @@
 				CB69E53020E3BC1E006E4C99 /* Extensions.swift in Sources */,
 				CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */,
 				CBBFB0A920DD385B00C26E1D /* MeditationInterfaceController.swift in Sources */,
+				124A313020E6E22800829A86 /* WorkoutSessionService.swift in Sources */,
 				CB3F158620E3E3D400016088 /* WaterlockInterfaceController.swift in Sources */,
 				CB91E71820DC31020005DEC5 /* ExtensionDelegate.swift in Sources */,
+				124A313320E6E2E400829A86 /* ExerciseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,13 +652,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,13 +671,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -674,14 +690,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -697,14 +713,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -720,10 +736,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -739,10 +755,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GJ5VL7QF9C;
+				DEVELOPMENT_TEAM = 6MTLA429XS;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1BiancaItiroko.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

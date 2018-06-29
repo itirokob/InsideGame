@@ -20,7 +20,6 @@ class CheckBackgroundInterfaceController: WKInterfaceController {
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
     }
 
-    
     /// Everytime this controller launches, we'll check if userDefaults["wonBackgroundLevel"] is true
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user

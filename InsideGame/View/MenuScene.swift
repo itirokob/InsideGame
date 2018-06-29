@@ -41,7 +41,6 @@ class MenuScene: SKScene, TreatWatchMessages {
     }
     
     override func sceneDidLoad() {
-        
         for i in 0...numberOfLevels{
             let isLevelSolved = self.userDefaults.bool(forKey: "level\(i+1)")
             
