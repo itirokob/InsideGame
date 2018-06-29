@@ -11,33 +11,32 @@ import Foundation
 import HealthKit
 
 class WaterlockInterfaceController: WKInterfaceController {
-    var workoutSession:HKWorkoutSession?
+
     let healthStore = HKHealthStore()
     let MY_LEVEL = 4
 
+    var workoutSession:WorkoutSessionService?
+    
     let userDefaults = UserDefaults.standard
     
     @IBOutlet var wavesImage: WKInterfaceImage!
     @IBOutlet var errorLabel: WKInterfaceLabel!
     @IBOutlet var finishLevelButton: WKInterfaceButton!
+    
     /// To enable waterlock, a workout must be running. Only in first time this controller is launched, we'll set it with a swimming workout.
     override func awake(withContext context: Any?) {
-        
+        self.errorLabel.setHidden(true)
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
-
-        let workoutConfig = HKWorkoutConfiguration()
-        workoutConfig.activityType = .swimming
-        workoutConfig.swimmingLocationType = .pool
-        workoutConfig.lapLength = HKQuantity(unit: HKUnit.meter(), doubleValue: 25.0)
         
-        do{
-            workoutSession = try HKWorkoutSession(configuration: workoutConfig)
-            workoutSession?.delegate = self
-            
-            healthStore.start(workoutSession!)
-            self.errorLabel.setText("")
-        }catch _ as NSError{
+        self.workoutSession = WorkoutSessionService(exerciseType: ExerciseType.swimming)
+        
+        // If workout session is nil, then it means that the swimming workout could not be initiated, which means that the device does not support waterlock (only available for series 2 and 3.
+        if workoutSession != nil {
+            workoutSession!.delegate = self
+            workoutSession!.startSession()
+        } else {
+            self.errorLabel.setHidden(false)
             self.finishLevelButton.setHidden(true)
             self.wavesImage.setHidden(true)
             self.errorLabel.setText("Your device does not support this level.")
@@ -55,25 +54,22 @@ class WaterlockInterfaceController: WKInterfaceController {
     }
     
     @IBAction func finishedLevelAction() {
+        workoutSession?.stopSession()
         self.wonLevel(level: MY_LEVEL)
     }
 }
 
-extension WaterlockInterfaceController:HKWorkoutSessionDelegate{
-    /// When a workout session changes it's state, this function will be called. When it starts, we'll enable WaterLock
-    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        switch toState{
-        case .running:
-            let extensionObject = WKExtension.shared()
-            extensionObject.enableWaterLock()
-        default:
-            print("bla")
-        }
+extension WaterlockInterfaceController: WorkoutSessionServiceDelegate {
+    
+    func workoutSessionService(_ service: WorkoutSessionService, didStopWorkoutAtDate endDate: Date) {
     }
     
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        print(error.localizedDescription)
+    func workoutSessionServiceDidSave(_ service: WorkoutSessionService) {
+        self.dismiss()
     }
     
+    func workoutSessionService(_ service: WorkoutSessionService, didUpdateHeartrate heartRate:Double) {
+    }
     
 }
+

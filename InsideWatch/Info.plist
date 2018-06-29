@@ -30,7 +30,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.BiancaItiroko.InsideGame</string>
+	<string>com.1BiancaItiroko.InsideGame</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

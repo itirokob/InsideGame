@@ -8,7 +8,17 @@
 
 import HealthKit
 
+// heart rate unit
+let hrUnit = HKUnit(from: "count/min")
+
+let hrType:HKQuantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+
 class HealthKitSetupAssistant {
+    
+    internal let healthKitStore:HKHealthStore = HKHealthStore()
+    
+    init() {}
+    
     private enum HealthkitSetupError: Error {
         case notAvailableOnDevice
         case dataTypeNotAvailable
