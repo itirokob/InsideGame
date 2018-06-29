@@ -20,7 +20,6 @@
 		CB69E52E20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB69E52D20E3B5AA006E4C99 /* CheckBackgroundInterfaceController.swift */; };
 		CB69E53020E3BC1E006E4C99 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB69E52F20E3BC1E006E4C99 /* Extensions.swift */; };
 		CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */; };
-		CB91E6EF20DC30DF0005DEC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */; };
 		CB91E6F220DC30DF0005DEC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F020DC30DF0005DEC5 /* Main.storyboard */; };
 		CB91E6F420DC30E00005DEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F320DC30E00005DEC5 /* Assets.xcassets */; };
 		CB91E6F720DC30E00005DEC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB91E6F520DC30E00005DEC5 /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 		CB91E71A20DC31020005DEC5 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E71920DC31020005DEC5 /* NotificationController.swift */; };
 		CB91E71C20DC31030005DEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E71B20DC31030005DEC5 /* Assets.xcassets */; };
 		CB91E72120DC31030005DEC5 /* InsideWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB91E70020DC31010005DEC5 /* InsideWatch.app */; };
-		CB91E72E20DC34B10005DEC5 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */; };
 		CBBFB08E20DC7C2100C26E1D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB08C20DC7C2100C26E1D /* GameScene.sks */; };
 		CBBFB08F20DC7C2900C26E1D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBFB08B20DC7C2100C26E1D /* GameScene.swift */; };
 		CBBFB09820DC7C4300C26E1D /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = CBBFB09020DC7C4100C26E1D /* Contents.json */; };
@@ -97,7 +95,6 @@
 		CB69E52F20E3BC1E006E4C99 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CB91E6E920DC30DF0005DEC5 /* InsideGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsideGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB91E6EC20DC30DF0005DEC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB91E6F120DC30DF0005DEC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB91E6F320DC30E00005DEC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB91E6F620DC30E00005DEC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		CB91E71B20DC31030005DEC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB91E71D20DC31030005DEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB91E71E20DC31030005DEC5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		CBBFB08B20DC7C2100C26E1D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CBBFB08C20DC7C2100C26E1D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CBBFB09020DC7C4100C26E1D /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
@@ -253,8 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				A275C39520E2DE450026E79C /* MenuViewController.swift */,
-				CB91E6EE20DC30DF0005DEC5 /* ViewController.swift */,
-				CB91E72D20DC34B10005DEC5 /* LevelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -453,11 +447,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB91E72E20DC34B10005DEC5 /* LevelViewController.swift in Sources */,
 				A275C39620E2DE450026E79C /* MenuViewController.swift in Sources */,
 				A275C39420E2D8350026E79C /* MenuScene.swift in Sources */,
 				126823A020E44899007D5758 /* HealthKitSetupAssistant.swift in Sources */,
-				CB91E6EF20DC30DF0005DEC5 /* ViewController.swift in Sources */,
 				CB91E6ED20DC30DF0005DEC5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
