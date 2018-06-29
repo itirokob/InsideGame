@@ -8,19 +8,17 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 
-class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeLevelDelegate {
+class MazeInterfaceController: WKInterfaceController, WonMazeLevelDelegate {
     let MY_LEVEL = 1
 
     @IBOutlet var skInterface: WKInterfaceSKScene!
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
-
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
         
         // Load the SKScene from 'GameScene.sks'
         if let scene = GameScene(fileNamed: "GameScene") {
@@ -38,18 +36,12 @@ class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeL
         }
     }
     
+    
+    /// When the user finishes the maze level, it GameScene calls this func so iPhone can be updated
     func wonMazeLevel() {
         self.wonLevel(level: MY_LEVEL)
         WKInterfaceDevice.current().play(.click)
         self.dismiss()
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let message = message["shouldDismiss"] as? Bool{
-            if message {
-                self.dismiss()
-            }
-        }
     }
     
     override func willActivate() {

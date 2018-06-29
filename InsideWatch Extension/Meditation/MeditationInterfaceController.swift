@@ -9,9 +9,8 @@
 import WatchKit
 import Foundation
 import HealthKit
-import WatchConnectivity
 
-class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
+class MeditationInterfaceController: WKInterfaceController {
 
     @IBOutlet private weak var heartRateLabel: WKInterfaceLabel!
     @IBOutlet private weak var heart: WKInterfaceImage!
@@ -25,24 +24,17 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
     var internalTimer: Timer?
     var initialHeartRate = 0.0
     var lowestHeartRate = 0.0
-
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
     //State of the app - is the workout activated
     var workoutActive = false
     
     var workoutSession: WorkoutSessionService?
     
+    let userDefaults = UserDefaults.standard
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let message = message["shouldDismiss"] as? Bool{
-            if message {
-                self.dismiss()
-            }
-        }
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
     }
     
     override func willActivate() {

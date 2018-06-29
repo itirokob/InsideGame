@@ -20,6 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var endNode = SKSpriteNode()
     var wonMazeDelegate:WonMazeLevelDelegate?
     
+    
+    /// Here we're setting the configuration for accelerometer
     override func sceneDidLoad() {
         self.player = self.childNode(withName: "player") as! SKSpriteNode
         self.endNode = self.childNode(withName: "endNode") as! SKSpriteNode
@@ -34,17 +36,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+    /// When our player hits the endGame node, watch should tell iPhone about it
+    ///
+    /// - Parameter contact: SKPhysicsContact
     func didBegin(_ contact: SKPhysicsContact) {
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
         
+        //If the contact happens, we call the delegate so MazeInterfaceController can deal with this info
         if (bodyA.categoryBitMask == 1 && bodyB.categoryBitMask == 2) || (bodyA.categoryBitMask == 2 && bodyB.categoryBitMask == 1) {
-            //Mandar para o iPhone que ganhei e dar dismiss nessa tela
             self.wonMazeDelegate?.wonMazeLevel()
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }

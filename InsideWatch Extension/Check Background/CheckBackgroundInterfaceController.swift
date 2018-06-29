@@ -8,38 +8,29 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 
-class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelegate {
+class CheckBackgroundInterfaceController: WKInterfaceController {
     let MY_LEVEL = 3
     let userDefaults = UserDefaults.standard
 
     @IBOutlet var funfouLabel: WKInterfaceLabel!
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        // Configure interface objects here.
+        self.userDefaults.set(false, forKey: "wonBackgroundLevel")
     }
 
+    
+    /// Everytime this controller launches, we'll check if userDefaults["wonBackgroundLevel"] is true
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        let maxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
         let hasWonBackgroundLevel = self.userDefaults.bool(forKey: "wonBackgroundLevel")
         
-        //Se o maxLevel for (MY_LEVEL - 1), então o próximo level é o de background
-        if maxLevel == (MY_LEVEL - 1) && hasWonBackgroundLevel {
+        if hasWonBackgroundLevel {
             self.wonLevel(level: MY_LEVEL)
-        }
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let message = message["shouldDismiss"] as? Bool{
-            if message {
-                self.dismiss()
-            }
+            dismiss()
         }
     }
     override func didDeactivate() {
