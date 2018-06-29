@@ -28,7 +28,7 @@ class MenuScene: SKScene, TreatWatchMessages {
     public var levelButtons = [SKNode]()
     var map = SKTileMapNode()
     var selectedNode = SKNode()
-    var stateLevel = ["unsolved", "unsolved", "unsolved", "unsolved"]
+    var stateLevel = ["unsolved", "solved", "unsolved", "unsolved"]
 
     func wonLevel(level: Int) {
         //Mudar a texture do levelButton de indice level
@@ -36,26 +36,31 @@ class MenuScene: SKScene, TreatWatchMessages {
         let solvedTexture = SKTexture(imageNamed: "maze-solved")
         let setSolved = SKAction.setTexture(solvedTexture)
         (self.levelButtons[level-1] as! SKSpriteNode).run(setSolved)
+        self.userDefaults.set(true, forKey: "level\(level)")
         self.stateLevel[level-1] = "solved"
-        //let changeColor = SKAction.colorize(with: .green, colorBlendFactor: 1.0, duration: 0.15)
-        //(self.levelButtons[level-1] as! SKSpriteNode).run(changeColor)
     }
 
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         self.map = self.childNode(withName: "Tile Map Node") as! SKTileMapNode
         self.hintLabel = map.childNode(withName: "hintLabel") as! SKLabelNode
-        for i in 0 ..< numberOfLevels {
-            if let button = map.childNode(withName: "level\(i)") {
+        for index in 0 ..< numberOfLevels {
+            if let button = map.childNode(withName: "level\(index)") {
+                setButtonTexture(button: button, to: stateLevel[index-1])
                 self.levelButtons.append(button)
             }
         }
-        
+
         let coordXRange = SKRange(lowerLimit: -240.0, upperLimit: 240.0)
         let coordYRange = SKRange(lowerLimit: -161.5, upperLimit: 161.5)
         
         let constrainMap = SKConstraint.positionX(coordXRange, y: coordYRange)
         self.map.constraints = [constrainMap]
+    }
+
+    func setButtonTexture (button: SKNode,to state: String) {
+        let texture = SKTexture(imageNamed: "maze-\(state)")
+        button.run(SKAction.setTexture(texture))
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,19 +74,10 @@ class MenuScene: SKScene, TreatWatchMessages {
             //print ("sou clicável")
             let index = selectedNode.name?.index((selectedNode.name?.startIndex)!, offsetBy: 5)
             let level = Int(String((selectedNode.name?[index!])!))
-            //print(level!)
             self.hintLabel.text = hints[Int(String(level!))! - 1]
+            for (i, button) in levelButtons.enumerated() {setButtonTexture(button: button, to: stateLevel[i])}
+            setButtonTexture(button: self.levelButtons[level!-1], to: "selected")
 
-            let selectedTexture = SKTexture(imageNamed: "maze-selected")
-            let deselectedTexture = SKTexture(imageNamed: "maze-\(self.stateLevel[level!-1])")
-            let setSelected = SKAction.setTexture(selectedTexture)
-            let setDeselected = SKAction.setTexture(deselectedTexture)
-
-            //let changeColorBlue = SKAction.colorize(with: .blue, colorBlendFactor: 1.0, duration: 0.15)
-            //let changeColorRed = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15)
-            for index in 0 ..< (levelButtons.count) { (self.levelButtons[index] as! SKSpriteNode).run(setDeselected) }
-            (self.levelButtons[level!-1] as! SKSpriteNode).run(setSelected)
-            
             if(WCSession.default.isReachable){
                 let message = ["currentLevel": level]
                 WCSession.default.sendMessage(message, replyHandler: nil)
