@@ -8,14 +8,12 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 
-class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelegate {
+class CheckBackgroundInterfaceController: WKInterfaceController {
     let MY_LEVEL = 3
     let userDefaults = UserDefaults.standard
 
     @IBOutlet var funfouLabel: WKInterfaceLabel!
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -32,14 +30,6 @@ class CheckBackgroundInterfaceController: WKInterfaceController, WCSessionDelega
         if hasWonBackgroundLevel {
             self.wonLevel(level: MY_LEVEL)
             dismiss()
-        }
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let message = message["shouldDismiss"] as? Bool{
-            if message {
-                self.dismiss()
-            }
         }
     }
     override func didDeactivate() {

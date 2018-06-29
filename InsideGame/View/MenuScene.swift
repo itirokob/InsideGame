@@ -84,8 +84,6 @@ class MenuScene: SKScene, TreatWatchMessages {
             
             if(WCSession.default.isReachable){
                 let message = ["currentLevel": level]
-//                let shouldDismissMsg = ["shouldDismiss": true]
-//                WCSession.default.sendMessage(shouldDismissMsg, replyHandler: nil)
                 WCSession.default.sendMessage(message, replyHandler: nil)
             }
         }

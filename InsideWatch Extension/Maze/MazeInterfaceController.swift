@@ -8,14 +8,11 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 
-class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeLevelDelegate {
+class MazeInterfaceController: WKInterfaceController, WonMazeLevelDelegate {
     let MY_LEVEL = 1
 
     @IBOutlet var skInterface: WKInterfaceSKScene!
-
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     let userDefaults = UserDefaults.standard
     
@@ -46,14 +43,6 @@ class MazeInterfaceController: WKInterfaceController,WCSessionDelegate, WonMazeL
         WKInterfaceDevice.current().play(.click)
         self.dismiss()
         print("Ganhou!")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let message = message["shouldDismiss"] as? Bool{
-            if message {
-                self.dismiss()
-            }
-        }
     }
     
     override func willActivate() {
