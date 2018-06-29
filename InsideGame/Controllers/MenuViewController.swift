@@ -48,7 +48,7 @@ class MenuViewController: UIViewController, WCSessionDelegate{
             print("FontURL is not valid")
         }
         // Load the SKScene from 'GameScene.sks'
-        if let scene = SKScene(fileNamed: "Menu") {
+        if let scene = MenuScene(fileNamed: "Menu") {
 
             // Set the scale mode to scale to fit the window
             //scene.scaleMode = .aspectFill
@@ -59,6 +59,9 @@ class MenuViewController: UIViewController, WCSessionDelegate{
 
             // Use a value that will maintain a consistent frame rate
             self.menuScene.preferredFramesPerSecond = 30
+            
+            self.delegate = scene
+            
         }
         // Request HealthKit authorization
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in

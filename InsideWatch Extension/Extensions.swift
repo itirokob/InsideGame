@@ -17,6 +17,9 @@ extension WKInterfaceController {
     ///
     /// - Parameter level: level won
     func wonLevel(level:Int){
+        WKInterfaceDevice.current().play(.click)
+        self.dismiss()
+        
         //Send iPhone a message
         if(WCSession.default.isReachable){
             let message = ["newWonLevel": level]

@@ -30,7 +30,6 @@ class CheckBackgroundInterfaceController: WKInterfaceController {
         
         if hasWonBackgroundLevel {
             self.wonLevel(level: MY_LEVEL)
-            dismiss()
         }
     }
     override func didDeactivate() {

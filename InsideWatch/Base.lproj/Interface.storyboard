@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="394" y="26"/>
         </scene>
-        <!--Check background-->
+        <!--level3Controller-->
         <scene sceneID="jI0-5I-4hh">
             <objects>
-                <controller identifier="level3Controller" title="Check background" id="gBK-YQ-e8Y" customClass="CheckBackgroundInterfaceController" customModule="InsideWatch_Extension">
+                <controller identifier="level3Controller" id="gBK-YQ-e8Y" customClass="CheckBackgroundInterfaceController" customModule="InsideWatch_Extension">
                     <items>
                         <group width="1" alignment="center" verticalAlignment="center" id="dXq-yc-25U">
                             <items>
@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="394" y="311"/>
         </scene>
-        <!--Waterlock-->
+        <!--level4Controller-->
         <scene sceneID="BXd-d0-zic">
             <objects>
-                <controller identifier="level4Controller" title="Waterlock" id="Map-IB-FIa" customClass="WaterlockInterfaceController" customModule="InsideWatch_Extension">
+                <controller identifier="level4Controller" id="Map-IB-FIa" customClass="WaterlockInterfaceController" customModule="InsideWatch_Extension">
                     <items>
                         <group alignment="center" verticalAlignment="center" layout="overlap" id="f8K-zT-Fcn">
                             <items>

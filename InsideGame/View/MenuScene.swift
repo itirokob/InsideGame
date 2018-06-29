@@ -28,7 +28,7 @@ class MenuScene: SKScene, TreatWatchMessages {
     public var levelButtons = [SKNode]()
     var map = SKTileMapNode()
     var selectedNode = SKNode()
-    var stateLevel = ["unsolved", "solved", "unsolved", "unsolved"]
+    var stateLevel = ["unsolved", "unsolved", "unsolved", "unsolved"]
 
     func wonLevel(level: Int) {
         //Mudar a texture do levelButton de indice level
@@ -38,7 +38,17 @@ class MenuScene: SKScene, TreatWatchMessages {
         (self.levelButtons[level-1] as! SKSpriteNode).run(setSolved)
         self.userDefaults.set(true, forKey: "level\(level)")
         self.stateLevel[level-1] = "solved"
-
+    }
+    
+    override func sceneDidLoad() {
+        
+        for i in 0...numberOfLevels{
+            let isLevelSolved = self.userDefaults.bool(forKey: "level\(i+1)")
+            
+            if isLevelSolved {
+                self.stateLevel[i] = "solved"
+            }
+        }
     }
 
     override func didMove(to view: SKView) {

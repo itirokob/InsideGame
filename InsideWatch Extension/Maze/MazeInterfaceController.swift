@@ -36,12 +36,11 @@ class MazeInterfaceController: WKInterfaceController, WonMazeLevelDelegate {
         }
     }
     
-    
     /// When the user finishes the maze level, it GameScene calls this func so iPhone can be updated
     func wonMazeLevel() {
         self.wonLevel(level: MY_LEVEL)
-        WKInterfaceDevice.current().play(.click)
-        self.dismiss()
+//        WKInterfaceDevice.current().play(.click)
+//        self.dismiss()
     }
     
     override func willActivate() {

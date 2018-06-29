@@ -16,9 +16,12 @@ class WaterlockInterfaceController: WKInterfaceController {
     
     let userDefaults = UserDefaults.standard
     
-    
+    let MY_LEVEL = 4
+    @IBOutlet var errorLabel: WKInterfaceLabel!
+    @IBOutlet var finishLevelButton: WKInterfaceButton!
     /// To enable waterlock, a workout must be running. Only in first time this controller is launched, we'll set it with a swimming workout.
     override func awake(withContext context: Any?) {
+        
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
 
@@ -32,9 +35,12 @@ class WaterlockInterfaceController: WKInterfaceController {
             workoutSession?.delegate = self
             
             healthStore.start(workoutSession!)
-        }catch let error as NSError{
-            fatalError("Unable to create workout session! \(error.localizedDescription)")
-        }    }
+            self.errorLabel.setText("")
+        }catch _ as NSError{
+            self.finishLevelButton.setEnabled(false)
+            self.errorLabel.setText("Your device does not support this level.")
+        }
+    }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -44,6 +50,10 @@ class WaterlockInterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    @IBAction func finishedLevelAction() {
+        self.wonLevel(level: MY_LEVEL)
     }
 }
 
