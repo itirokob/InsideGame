@@ -262,11 +262,8 @@
 				CBBFB0AA20DD386700C26E1D /* Meditation */,
 				CB69E52C20E3B590006E4C99 /* Check Background */,
 				CB3F158420E3E34400016088 /* Waterlock */,
-<<<<<<< HEAD
 				CBBFB0A520DD2A7900C26E1D /* Accelerometer */,
 				12A0201720E55D5000B3D150 /* Services */,
-=======
->>>>>>> 1774fe3ae406595590f6f9cb70c34624108f322a
 			);
 			path = "InsideWatch Extension";
 			sourceTree = "<group>";
