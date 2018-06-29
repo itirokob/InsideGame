@@ -116,7 +116,11 @@
                     <items>
                         <group alignment="center" verticalAlignment="center" layout="overlap" id="f8K-zT-Fcn">
                             <items>
-                                <button alignment="center" verticalAlignment="center" backgroundImage="waterlockButton" id="aNc-5U-cNN"/>
+                                <button alignment="center" verticalAlignment="center" backgroundImage="waterlockButton" id="aNc-5U-cNN">
+                                    <connections>
+                                        <action selector="finishedLevelAction" destination="Map-IB-FIa" id="euu-hd-7Mh"/>
+                                    </connections>
+                                </button>
                                 <imageView alignment="left" verticalAlignment="bottom" image="waves" id="lj4-ol-F9B"/>
                                 <label alignment="center" verticalAlignment="center" text="Label" id="1jv-gj-X6c"/>
                             </items>

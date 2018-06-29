@@ -39,6 +39,8 @@ class MeditationInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
+        self.timer.setHidden(true)
+
     }
     
     override func willActivate() {
@@ -75,8 +77,8 @@ class MeditationInterfaceController: WKInterfaceController {
         } else {
             //start a new workout
             self.workoutActive = true
-            self.startStopButton.setTitle("Stop")
-            
+
+            self.timer.setHidden(false)
             self.setTimer()
             self.startWorkout()
         }
@@ -86,7 +88,6 @@ class MeditationInterfaceController: WKInterfaceController {
         self.timer.stop()
         self.workoutActive = false
         self.internalTimer?.invalidate()
-        self.startStopButton.setTitle("Start")
         if let workout = self.session {
             healthStore.end(workout)
         }
@@ -95,7 +96,7 @@ class MeditationInterfaceController: WKInterfaceController {
     
     // Set timer to meditate
     func setTimer() {
-        let countdown: TimeInterval = 600
+        let countdown: TimeInterval = 15
         let date = Date(timeIntervalSinceNow: countdown)
         self.internalTimer?.invalidate()
         self.internalTimer = Timer.scheduledTimer(timeInterval: countdown, target: self, selector: #selector(self.finishCurrentWorkout), userInfo: nil, repeats: false)
@@ -185,7 +186,10 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
     
     func workoutDidEnd(_ date : Date) {
         healthStore.stop(self.currenQuery!)
-        initialHeartRate = 0.0
+        if (initialHeartRate - lowestHeartRate >= 0.1*initialHeartRate) {
+            self.wonLevel(level: MY_LEVEL)
+        }
+        self.initialHeartRate = 0.0
         session = nil
     }
 }
