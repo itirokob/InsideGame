@@ -140,9 +140,15 @@
                             <items>
                                 <button alignment="center" verticalAlignment="center" backgroundImage="waterlockButton" id="aNc-5U-cNN"/>
                                 <imageView alignment="left" verticalAlignment="bottom" image="waves" id="lj4-ol-F9B"/>
+                                <label alignment="center" verticalAlignment="center" text="Label" id="1jv-gj-X6c"/>
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="errorLabel" destination="1jv-gj-X6c" id="Xdv-MU-FpQ"/>
+                        <outlet property="finishLevelButton" destination="aNc-5U-cNN" id="RcA-oB-0nw"/>
+                        <outlet property="wavesImage" destination="lj4-ol-F9B" id="c1M-c0-Ch4"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="713" y="314"/>
