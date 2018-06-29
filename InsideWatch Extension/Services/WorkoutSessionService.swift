@@ -48,7 +48,6 @@ class WorkoutSessionService: NSObject {
     
     init?(exerciseType: ExerciseType) {
         self.exerciseType = exerciseType
-        
         let hkWorkoutConfiguration = HKWorkoutConfiguration()
         hkWorkoutConfiguration.activityType = exerciseType.activityType
         hkWorkoutConfiguration.locationType = exerciseType.location
@@ -61,9 +60,7 @@ class WorkoutSessionService: NSObject {
         
         // Initialize Current Workout Values
         heartRate = HKQuantity(unit: hrUnit, doubleValue: 0.0)
-        
         super.init()
-        
         session.delegate = self
     }
     
@@ -74,7 +71,6 @@ class WorkoutSessionService: NSObject {
     func stopSession() {
         healthService.healthKitStore.end(session)
     }
-    
 }
 
 extension WorkoutSessionService: HKWorkoutSessionDelegate {
@@ -93,12 +89,13 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
                     let extensionObject = WKExtension.shared()
                     extensionObject.enableWaterLock()
                 }
-                
+                self.delegate?.workoutSessionService(self, didStartWorkoutAtDate: date)
                 
             case .ended:
-                self.sessionEnded(date)
-                
-                
+                if (self.exerciseType.activityType == .running) {
+                    self.sessionEnded(date)
+                }
+                self.delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
             default:
                 print("Something weird happened. Not a valid state")
             }
@@ -128,31 +125,22 @@ extension WorkoutSessionService: HKWorkoutSessionDelegate {
         }
     }
     
-    // MARK: Internal Session Control
     fileprivate func sessionStarted(_ date: Date) {
-        
         // Create and start heart rate query
         hrQuery = heartRateQuery(withStartDate: date)
-        
         healthService.healthKitStore.execute(hrQuery!)
-        
         startDate = date
-        
         // Let the delegate know
-        delegate?.workoutSessionService(self, didStartWorkoutAtDate: date)
+        // delegate?.workoutSessionService(self, didStartWorkoutAtDate: date)
     }
     
     fileprivate func sessionEnded(_ date: Date) {
-        
-        // Stop Any Queries]
+        // Stop Any Queries
         healthService.healthKitStore.stop(hrQuery!)
-        
         hrQuery = nil
-        
         endDate = date
-        
         // Let the delegate know
-        delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
+        // delegate?.workoutSessionService(self, didStopWorkoutAtDate: date)
     }
     
     internal func heartRateQuery(withStartDate start: Date) -> HKQuery? {

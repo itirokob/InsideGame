@@ -17,6 +17,8 @@ class HealthKitSetupAssistant {
     
     internal let healthKitStore:HKHealthStore = HKHealthStore()
     
+    init() {}
+    
     private enum HealthkitSetupError: Error {
         case notAvailableOnDevice
         case dataTypeNotAvailable

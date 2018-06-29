@@ -51,7 +51,6 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
         // Request HealthKit authorization
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             guard authorized else {
-
                 let baseMessage = "HealthKit Authorization Failed"
                 self.displayNotAllowed()
 
@@ -83,18 +82,11 @@ class MeditationInterfaceController: WKInterfaceController, WCSessionDelegate {
             self.finishCurrentWorkout()
         } else {
             //start a new workout
-            self.workoutActive = true
-            self.startStopButton.setTitle("Stop")
-            self.setTimer()
-            self.workoutSession = WorkoutSessionService(exerciseType: ExerciseType.running)
-            if workoutSession != nil {
-                workoutSession!.delegate = self
-                workoutSession!.startSession()
-            }
+            self.startNewWorkout()
         }
     }
     
-    func startNewAwkward() {
+    func startNewWorkout() {
         self.workoutActive = true
         self.startStopButton.setTitle("Stop")
         self.setTimer()
