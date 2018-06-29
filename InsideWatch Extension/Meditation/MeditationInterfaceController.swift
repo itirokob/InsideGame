@@ -149,6 +149,9 @@ class MeditationInterfaceController: WKInterfaceController {
     func workoutDidEnd(_ date : Date) {
         self.initialHeartRate = 0.0
         self.heartRateLabel.setText("---")
+        if (initialHeartRate - lowestHeartRate >= 0.1*initialHeartRate) {
+            self.wonLevel(level: MY_LEVEL)
+        }
     }
 }
 
