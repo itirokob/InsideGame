@@ -25,6 +25,8 @@ class MeditationInterfaceController: WKInterfaceController {
     var initialHeartRate = 0.0
     var lowestHeartRate = 0.0
     
+    var heartRates:[Double] = [Double]()
+    
     //State of the app - is the workout activated
     var workoutActive = false
     

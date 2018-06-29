@@ -15,6 +15,8 @@ class WaterlockInterfaceController: WKInterfaceController {
 
     let userDefaults = UserDefaults.standard
 
+    @IBOutlet var stopButton: WKInterfaceButton!
+    
     @IBAction func stopButtonPressed() {
         workoutSession?.stopSession()
     }
@@ -25,7 +27,9 @@ class WaterlockInterfaceController: WKInterfaceController {
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
 
         self.workoutSession = WorkoutSessionService(exerciseType: ExerciseType.swimming)
+        
         if workoutSession != nil {
+            stopButton.setTitle("FUNCIONA")
             workoutSession!.delegate = self
             workoutSession!.startSession()
         }

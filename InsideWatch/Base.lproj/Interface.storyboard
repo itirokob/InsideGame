@@ -137,6 +137,9 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="stopButton" destination="7If-Jk-NYh" id="T5s-Rm-KRj"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="713" y="314"/>
