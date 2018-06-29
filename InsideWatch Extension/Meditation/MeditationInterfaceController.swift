@@ -12,13 +12,9 @@ import HealthKit
 
 class MeditationInterfaceController: WKInterfaceController {
 
-    @IBOutlet private weak var heartRateLabel: WKInterfaceLabel!
-    @IBOutlet private weak var deviceLabel : WKInterfaceLabel!
-    @IBOutlet private weak var heart: WKInterfaceImage!
     @IBOutlet private weak var startStopButton : WKInterfaceButton!
 
     @IBOutlet var timer: WKInterfaceTimer!
-    @IBOutlet var goalCompleted: WKInterfaceLabel!
     
     let MY_LEVEL = 2
     
@@ -53,7 +49,6 @@ class MeditationInterfaceController: WKInterfaceController {
             guard authorized else {
 
                 let baseMessage = "HealthKit Authorization Failed"
-                self.displayNotAllowed()
 
                 if let error = error {
                     print("\(baseMessage). Reason: \(error.localizedDescription)")
@@ -70,10 +65,6 @@ class MeditationInterfaceController: WKInterfaceController {
         super.willDisappear()
         // finishes workout whenever view will disappear
         self.finishCurrentWorkout()
-    }
-    
-    func displayNotAllowed() {
-        heartRateLabel.setText("Healthkit not available.")
     }
     
     // When Start/Stop button is pressed
@@ -99,13 +90,7 @@ class MeditationInterfaceController: WKInterfaceController {
         if let workout = self.session {
             healthStore.end(workout)
         }
-        self.displayHRValues()
     }
-    
-    func displayHRValues() {
-        self.goalCompleted.setText("i: \(self.initialHeartRate)  l: \(self.lowestHeartRate)")
-    }
-    
     
     
     // Set timer to meditate
@@ -129,35 +114,6 @@ class MeditationInterfaceController: WKInterfaceController {
             }
             if self.initialHeartRate == 0.0 {  // set initial heart rate
                 self.initialHeartRate = value
-            }
-            
-            self.heartRateLabel.setText(String(UInt16(value)))
-            
-            // retrieve source from sample
-            let name = sample.sourceRevision.source.name
-            self.updateDeviceName(name)
-            self.animateHeart()
-        }
-    }
-    
-    func updateDeviceName(_ deviceName: String) {
-        deviceLabel.setText(deviceName)
-    }
-    
-    func animateHeart() {
-        self.animate(withDuration: 0.5) {
-            self.heart.setWidth(60)
-            self.heart.setHeight(90)
-        }
-        
-        let when = DispatchTime.now() + Double(Int64(0.5 * double_t(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        
-        DispatchQueue.global(qos: .default).async {
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                self.animate(withDuration: 0.5, animations: {
-                    self.heart.setWidth(50)
-                    self.heart.setHeight(80)
-                })
             }
         }
     }
@@ -224,15 +180,12 @@ extension MeditationInterfaceController: HKWorkoutSessionDelegate {
         if let query = createHeartRateStreamingQuery(date) {
             self.currenQuery = query
             healthStore.execute(query)
-        } else {
-            heartRateLabel.setText("cannot start")
         }
     }
     
     func workoutDidEnd(_ date : Date) {
         healthStore.stop(self.currenQuery!)
         initialHeartRate = 0.0
-        heartRateLabel.setText("---")
         session = nil
     }
 }

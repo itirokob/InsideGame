@@ -17,8 +17,8 @@ class MenuScene: SKScene, TreatWatchMessages {
     var numberOfLevels = 4
     var hints = [
         "BRING BACK \nMY BALANCE!",
-        "I AM FELLING \nLONELY",
-        "I AM \nEXHAUSTED",
+        "JUST CHILL!",
+        "DON'T LOOK\nAT IT!",
         "HELP ME! \nI'M DROWNING"
     ]
     

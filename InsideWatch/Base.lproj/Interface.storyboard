@@ -88,7 +88,11 @@
                     <items>
                         <group width="1" height="1" alignment="center" layout="overlap" id="lSY-2P-Tw4">
                             <items>
-                                <button alignment="center" verticalAlignment="center" backgroundImage="frodacrara" id="FoT-Qq-E7g"/>
+                                <button alignment="center" verticalAlignment="center" backgroundImage="frodacrara" id="FoT-Qq-E7g">
+                                    <connections>
+                                        <action selector="startBtnTapped" destination="jzO-zt-cmM" id="LOf-CI-6SK"/>
+                                    </connections>
+                                </button>
                                 <timer alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="600" id="jC1-h5-EHQ">
                                     <color key="textColor" red="0.0" green="0.12171766489999999" blue="0.021294487849999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
@@ -98,6 +102,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="startStopButton" destination="FoT-Qq-E7g" id="Wa8-zk-akD"/>
                         <outlet property="timer" destination="jC1-h5-EHQ" id="9AF-2F-rjs"/>
                     </connections>
                 </controller>
