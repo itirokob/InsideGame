@@ -636,13 +636,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,13 +655,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InsideGame/InsideGame.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = InsideGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -674,14 +674,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -697,14 +697,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "InsideWatch Extension/InsideWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				INFOPLIST_FILE = "InsideWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -720,10 +720,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -739,10 +739,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYTAYKS6H2;
+				DEVELOPMENT_TEAM = GJ5VL7QF9C;
 				IBSC_MODULE = InsideWatch_Extension;
 				INFOPLIST_FILE = InsideWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItirok.InsideGame.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BiancaItiroko.InsideGame.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
