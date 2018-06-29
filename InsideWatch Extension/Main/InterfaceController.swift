@@ -27,6 +27,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
         }
     }
     
+    
+    /// Called when a level is selected in iPhone and present the correspondent controller
+    ///
+    /// - Parameters:
+    ///   - session: WCSession between watch and iOS
+    ///   - message: which level should watch presents
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         if let message = message["currentLevel"] as? Int{
             self.segueName = "level" + String(message) + "Controller"
@@ -38,8 +44,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
         }
     }
     
+    ///This method is called when watch view controller is about to be visible to user
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
         // Request HealthKit authorization
@@ -60,7 +66,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 }

@@ -92,17 +92,6 @@ class MenuViewController: UIViewController, WCSessionDelegate{
                 self.delegate?.wonLevel(level: message)
             }
         }
-    
-//        let currMaxLevel = self.userDefaults.integer(forKey: "maxLevelReached")
-//
-//        if let message = message["maxLevelReached"] as? Int{
-//            if message > currMaxLevel {
-//                self.userDefaults.set(message, forKey: "maxLevelReached")
-//                DispatchQueue.main.async {
-//                    self.delegate?.wonLevel(level: message)
-//                }
-//            }
-//        }
     }
 
 }

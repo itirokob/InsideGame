@@ -19,8 +19,6 @@ class MazeInterfaceController: WKInterfaceController, WonMazeLevelDelegate {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
-
-        // Configure interface objects here.
         
         // Load the SKScene from 'GameScene.sks'
         if let scene = GameScene(fileNamed: "GameScene") {
@@ -38,11 +36,12 @@ class MazeInterfaceController: WKInterfaceController, WonMazeLevelDelegate {
         }
     }
     
+    
+    /// When the user finishes the maze level, it GameScene calls this func so iPhone can be updated
     func wonMazeLevel() {
         self.wonLevel(level: MY_LEVEL)
         WKInterfaceDevice.current().play(.click)
         self.dismiss()
-        print("Ganhou!")
     }
     
     override func willActivate() {

@@ -18,9 +18,10 @@ class CheckBackgroundInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         self.userDefaults.set(false, forKey: "wonBackgroundLevel")
-        // Configure interface objects here.
     }
 
+    
+    /// Everytime this controller launches, we'll check if userDefaults["wonBackgroundLevel"] is true
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
